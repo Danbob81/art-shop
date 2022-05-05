@@ -21,6 +21,12 @@
     {% endblock %}
 
     {% block corejs %}
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Water+Brush&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/abe5db6b8e.js" crossorigin="anonymous"></script>
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -34,10 +40,73 @@
   </head>
   <body>
       <header class="container-fluid fixed-top">
-        
+        <ul class="nav justify-content-end bg-white text-dark">
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="#"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="#"><i class="fa-solid fa-basket-shopping"></i></a>
+          </li>
+        </ul>
+        <ul class="nav justify-content-center bg-white text-dark">
+          <a class="navbar-brand text-dark" href="#">
+            <img src="" alt="Lindsey Higginson Art logo" width="30" height="24">
+          </a>
+        </ul>
+        <ul class="nav justify-content-center bg-white text-dark">
+          <li class="nav-item">
+            <a class="nav-link text-dark active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" href="#">Gallery</a>
+          </li>
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link text-dark dropdown-toggle" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+              Shop
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li><a class="dropdown-item" href="#">Originals</a></li>
+              <li><a class="dropdown-item" href="#">Prints</a></li>
+              <li><a class="dropdown-item" href="#">Merchandise</a></li>
+            </ul>
+          </li> -->
+          <div class="dropdown">
+            <a class="nav-link text-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+              Shop
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="#">Originals</a>
+              <a class="dropdown-item" href="#">Prints</a>
+              <a class="dropdown-item" href="#">Merchandise</a>
+            </div>
+          </div>
+        </ul>
       </header>
 
       {% block content %}
       {% endblock %}
+
+      <footer class="container-fluid fixed-bottom">
+        <div class="text-start bg-white text-dark">
+          <a class="text-dark" href="#">
+            <img src="" alt="Lindsey Higginson Art logo" width="30" height="24">
+          </a>
+          <p class="text-center">Socials: 
+          </p>
+          <p class="text-center">
+            <a class="text-dark" href="https://www.instagram.com/madgeekmommy/?hl=en" target="_blank"><i class="fa-brands fa-instagram-square"></i></a>
+            <a class="text-dark" href="https://www.facebook.com/danandlinz.higginson" target="_blank"><i class="fa-brands fa-facebook-square"></i></a>
+          </p>
+        </div>
+        <div class="text-end bg-white text-dark">
+          <p class="text-center"><strong>Disclaimer:</strong> This site is for educational purposes only.
+            No orders can/will be fulfilled.</p>
+          <p>Site created by: 
+            <span id="copyright">&copy;</span>danbob81
+            <a class="text-dark" href="https://github.com/Danbob81" target="_blank"><i class="fab fa-github"></i></a>
+            <a class="text-dark" href="https://www.linkedin.com/in/daniel-higginson/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+          </p>
+        </div>
+      </footer>
   </body>
 </html>
