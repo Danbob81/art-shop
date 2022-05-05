@@ -1,108 +1,162 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+<h1 align="center"><strong>Art Shop</strong></h1>
 
-Welcome Daniel Higginson,
+View live site [here.]()
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+![Main Site Image]()
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+# **User Experience (UX)** 
 
-## Gitpod Reminders
+## **Brief**
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
 
-`python3 -m http.server`
 
-A blue button should appear to click: _Make Public_,
+#
+## **User Stories**
 
-Another blue button should appear to click: _Open Browser_.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+[Back to top](#user-experience-ux)
 
-A blue button should appear to click: _Make Public_,
+#
+## **Design**
+### **Colour Scheme:**
+  - 
 
-Another blue button should appear to click: _Open Browser_.
+### **Typography:**
+  - Google Fonts
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### **Imagery**
 
-To log into the Heroku toolbelt CLI:
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+### **Wireframes**
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+Wireframes for desktop, tablet and mobile views created using Balsamiq.
 
-------
+PDF links here:
+  - [Desktop]()
+  - [Tablet]()
+  - [Mobile]()
 
-## Release History
+[Back to top](#user-experience-ux)
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+#
+## **Features**
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+### **Implemented**
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+### **Future features**
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+[Back to top](#user-experience-ux)
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+#
+## **Database Design**
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+![Entity Relationship Diagram]()
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+(created using LucidChart - [link](https://bit.ly/3qHI00n))
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+[Back to top](#user-experience-ux)
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+#
+## **Technologies Used**
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+### **Languages:**
+  - HTML 5
+  - CSS 3
+  - Javascript (JQuery)
+  - Python
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+### **Frameworks, libraries and programmes:**
+  - 
+  - JQuery - for JS functions
+  - Pip - to install required dependencies
+  - Git & Github - for version control and code storing
+  - Balsamiq - for wireframes
+  - LucidChart - for entity relationship diagram
+  - Heroku - to deploy live site
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+### **Database Technologies**
+  - 
+  - 
 
-------
+### **Workspace**
+  - Gitpod - VSCode based virtual IDE
 
-## FAQ about the uptime script
+[Back to top](#user-experience-ux)
 
-**Why have you added this script?**
+#
+## **Testing**
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+Chrome Developer Tool was used to simulate the different viewport sizes for desktop and laptop views, tablet views and mobile views. I used this throughout the development process as well as for testing the website once it was deployed to Heroku.
 
-**How will this affect me?**
+The deployed website was also tested using Chrome, Edge and Firefox as well as on mobile (using Chrome for Android)
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+More detailed information of the testing carried out can be viewed in [TESTING.md]()
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+[Back to top](#user-experience-ux)
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+#
+## **Deployment**
 
-**So….?**
+### **Site deployed to Heroku**
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+**Requirements for Deployment:**
+  - Python
+  - MongoDB account and database
+  - GitHub account
+  - Heroku account
 
-**Can I opt out?**
+**Process:**
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+**Deployment to Heroku:**
+  - create requirements.txt file and Procfile by running these commands in terminal:
+    - `pip3 freeze --local > requirements.txt`
+    - `echo web: python run.py > Procfile`
+  - push to repository
+  - create .gitignore file if you don't already have one
+  - add `env.py` and `__pycache__/` to the .gitignore file and save it. Sensitive information will now not be added to your repository
+  - create env.py file with the following information:
+    - `import os`
 
-**Anything more?**
+    - `os.environ.setdefault("IP", "0.0.0.0")`
+    - `os.environ.setdefault("PORT", "5000")`
+    - `os.environ.setdefault("SECRET_KEY", " ## YOUR SECRET_KEY ## ")`
+    - `os.environ.setdefault("MONGO_URI", " ## YOUR MONGO_URI ## ")`
+    - `os.environ.setdefault("MONGO_DB", " ## YOUR MONGO_DBNAME ## ")`
+  
+  - log in to [Heroku](https://bit.ly/3HqWiYV)
+  - select 'Create New App' in the dashboard
+  - choose your app name, select the region nearest you and click 'Create App'
+  - go to 'Deploy' tab, 'Deployment Method' and select 'GitHub'
+  - search for your GitHub repo and click 'Connect'
+  - go to 'Settings' tab, 'Config Vars' and select 'Reveal Config Vars'
+  - enter key value pairs from your env.py file
+  - go to 'Deploy' tab and select 'Enable Automatic Deployment'
+  - choose the branch to deploy from
+  - click 'Deploy Branch' to deploy your app onto Heroku servers
+  - let app finish building then click 'Open App' to view your site
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+[Back to top](#user-experience-ux)
 
----
+#
+## **Credits**
 
-Happy coding!
+### **Content:**
+-
+
+### **Code:**
+  - 
+  -  
+  - 
+ 
+### **Media:**
+- 
+
+### **Acknowledgements:**
+- 
+
+[Back to top](#user-experience-ux)
+#
