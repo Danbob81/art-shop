@@ -5,15 +5,57 @@
 <!-- <hr> -->
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-4">
+            <h2 class="text-center">Birds</h2>
+            <div class="col"></div>
+            <div class="col">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <!-- Carousel Wrapper -->
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                          <div class="d-flex justify-content-center">
+                              <img src="{% static 'images/bluetit.jpg' %}" alt="bluetit in watercolour">
+                          </div>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{% static 'images/bearded_tit.jpg' %}" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{% static 'images/bullfinch.jpg' %}" alt="...">
+                      </div>
+                    </div>
+                    <!-- Controls -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                      <span class="text-dark" aria-hidden="true"><i class="fa-solid fa-chevron-left fa-lg"></i></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                      <span class="text-dark" aria-hidden="true"><i class="fa-solid fa-chevron-right fa-lg"></i></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                    <!-- Thumbnails -->
+                    <div class="carousel-indicators" style="margin-bottom: -20px;">
+                        <div class="d-flex justify-content-center">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
+                                <img class="d-block w-100" src="{% static 'images/bluetit_thumb.jpg' %}" alt="">
+                            </button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2">
+                                <img class="d-block w-100" src="{% static 'images/bearded_tit_thumb.jpg' %}" alt="">
+                            </button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3">
+                                <img class="d-block w-100" src="{% static 'images/bluetit_thumb.jpg' %}" alt="">
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-4">
-            </div>
+            <div class="col"></div>
         </div>
-        <br>
-        <p class="text-center">
-            <i class="fa-solid fa-paintbrush"></i>
-        </p>
+        
+        
     </div>
+    <br>
+    <!-- <p class="text-center">
+        <i class="fa-solid fa-paintbrush"></i>
+    </p> -->
 <!-- <hr> -->
 {% endblock %}
