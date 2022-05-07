@@ -26,14 +26,21 @@ body {
     margin-bottom: 20px;
 }
 
-footer {
-    position: relative;
-}
-
 .carousel-item {
     background-color: #fff;
 }
 
 .carousel-indicators {
     display: contents;
+    margin-bottom: -20px;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    bottom: 25px;
+}
+
+footer {
+    margin: auto;
+    position: relative;
 }

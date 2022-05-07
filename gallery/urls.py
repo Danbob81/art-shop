@@ -1,3 +1,4 @@
+""" url for gallery """
 from django.urls import path
 from . import views
 

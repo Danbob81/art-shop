@@ -2,47 +2,130 @@
 {% load static %}
 
 {% block content %}
-<!-- <hr> -->
+<hr>
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <h2 class="text-center">Birds</h2>
-            <div class="col"></div>
+            <div class="col"><h2 class="text-center">British Birds Collection</h2></div>
             <div class="col">
-                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div id="carouselBirds" class="carousel slide carousel-fade" data-ride="carousel">
                     <!-- Carousel Wrapper -->
                     <div class="carousel-inner">
-                      <div class="carousel-item active">
-                          <div class="d-flex justify-content-center">
-                              <img src="{% static 'images/bluetit.jpg' %}" alt="bluetit in watercolour">
-                          </div>
-                      </div>
-                      <div class="carousel-item">
-                        <img src="{% static 'images/bearded_tit.jpg' %}" alt="...">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="{% static 'images/bullfinch.jpg' %}" alt="...">
-                      </div>
+                        <div class="carousel-item active" data-interval="20000">
+                            <div class="d-flex justify-content-center">
+                                <img src="{% static 'images/bluetit.jpg' %}" alt="blue tit in watercolour">
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-interval="20000">
+                            <div class="d-flex justify-content-center">
+                                <img src="{% static 'images/bearded_tit.jpg' %}" alt="bearded tit in watercolour">
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-interval="20000">
+                            <div class="d-flex justify-content-center">
+                                <img src="{% static 'images/bullfinch.jpg' %}" alt="bullfinch in watercolour">
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-interval="20000">
+                            <div class="d-flex justify-content-center">
+                                <img src="{% static 'images/chaffinch.jpg' %}" alt="chaffinch in watercolour">
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-interval="20000">
+                            <div class="d-flex justify-content-center">
+                                <img src="{% static 'images/crested_tit.jpg' %}" alt="crested tit in watercolour">
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-interval="20000">
+                            <div class="d-flex justify-content-center">
+                                <img src="{% static 'images/gold_crest.jpg' %}" alt="goldcrest in watercolour">
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="d-flex justify-content-center">
+                                <img src="{% static 'images/gold_crest2.jpg' %}" alt="goldcrest in watercolour">
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-interval="20000">
+                            <div class="d-flex justify-content-center">
+                                <img src="{% static 'images/goldfinch.jpg' %}" alt="goldfinch in watercolour">
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-interval="20000">
+                            <div class="d-flex justify-content-center">
+                                <img src="{% static 'images/long_tail_tit.jpg' %}" alt="long tailed tit in watercolour">
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-interval="20000">
+                            <div class="d-flex justify-content-center">
+                                <img src="{% static 'images/nuthatch.jpg' %}" alt="nuthatch in watercolour">
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-interval="20000">
+                            <div class="d-flex justify-content-center">
+                                <img src="{% static 'images/robin.jpg' %}" alt="robin in watercolour">
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-interval="20000">
+                            <div class="d-flex justify-content-center">
+                                <img src="{% static 'images/tree_creeper.jpg' %}" alt="tree creeper in watercolour">
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-interval="20000">
+                            <div class="d-flex justify-content-center">
+                                <img src="{% static 'images/wren.jpg' %}" alt="wren in watercolour">
+                            </div>
+                        </div>
                     </div>
                     <!-- Controls -->
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <button class="carousel-control-prev" type="button" data-target="#carouselBirds" data-slide="prev">
                       <span class="text-dark" aria-hidden="true"><i class="fa-solid fa-chevron-left fa-lg"></i></span>
                       <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <button class="carousel-control-next" type="button" data-target="#carouselBirds" data-slide="next">
                       <span class="text-dark" aria-hidden="true"><i class="fa-solid fa-chevron-right fa-lg"></i></span>
                       <span class="visually-hidden">Next</span>
                     </button>
                     <!-- Thumbnails -->
-                    <div class="carousel-indicators" style="margin-bottom: -20px;">
+                    <div class="carousel-indicators">
                         <div class="d-flex justify-content-center">
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
+                            <button type="button" data-target="#carouselBirds" data-slide-to="0" class="border-0 active" aria-current="true" aria-label="Slide 1">
                                 <img class="d-block w-100" src="{% static 'images/bluetit_thumb.jpg' %}" alt="">
                             </button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2">
+                            <button type="button" data-target="#carouselBirds" data-slide-to="1" class="border-0" aria-label="Slide 2">
                                 <img class="d-block w-100" src="{% static 'images/bearded_tit_thumb.jpg' %}" alt="">
                             </button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3">
-                                <img class="d-block w-100" src="{% static 'images/bluetit_thumb.jpg' %}" alt="">
+                            <button type="button" data-target="#carouselBirds" data-slide-to="2" class="border-0" aria-label="Slide 3">
+                                <img class="d-block w-100" src="{% static 'images/bullfinch_thumb.jpg' %}" alt="">
+                            </button>
+                            <button type="button" data-target="#carouselBirds" data-slide-to="3" class="border-0" aria-label="Slide 3">
+                                <img class="d-block w-100" src="{% static 'images/chaffinch_thumb.jpg' %}" alt="">
+                            </button>
+                            <button type="button" data-target="#carouselBirds" data-slide-to="4" class="border-0" aria-label="Slide 3">
+                                <img class="d-block w-100" src="{% static 'images/crested_tit_thumb.jpg' %}" alt="">
+                            </button>
+                            <button type="button" data-target="#carouselBirds" data-slide-to="5" class="border-0" aria-label="Slide 3">
+                                <img class="d-block w-100" src="{% static 'images/gold_crest_thumb.jpg' %}" alt="">
+                            </button>
+                            <button type="button" data-target="#carouselBirds" data-slide-to="6" class="border-0" aria-label="Slide 3">
+                                <img class="d-block w-100" src="{% static 'images/gold_crest2_thumb.jpg' %}" alt="">
+                            </button>
+                            <button type="button" data-target="#carouselBirds" data-slide-to="7" class="border-0" aria-label="Slide 3">
+                                <img class="d-block w-100" src="{% static 'images/goldfinch_thumb.jpg' %}" alt="">
+                            </button>
+                            <button type="button" data-target="#carouselBirds" data-slide-to="8" class="border-0" aria-label="Slide 3">
+                                <img class="d-block w-100" src="{% static 'images/long_tail_tit_thumb.jpg' %}" alt="">
+                            </button>
+                            <button type="button" data-target="#carouselBirds" data-slide-to="9" class="border-0" aria-label="Slide 3">
+                                <img class="d-block w-100" src="{% static 'images/nuthatch_thumb.jpg' %}" alt="">
+                            </button>
+                            <button type="button" data-target="#carouselBirds" data-slide-to="10" class="border-0" aria-label="Slide 3">
+                                <img class="d-block w-100" src="{% static 'images/robin_thumb.jpg' %}" alt="">
+                            </button>
+                            <button type="button" data-target="#carouselBirds" data-slide-to="11" class="border-0" aria-label="Slide 3">
+                                <img class="d-block w-100" src="{% static 'images/tree_creeper_thumb.jpg' %}" alt="">
+                            </button>
+                            <button type="button" data-target="#carouselBirds" data-slide-to="12" class="border-0" aria-label="Slide 3">
+                                <img class="d-block w-100" src="{% static 'images/wren_thumb.jpg' %}" alt="">
                             </button>
                         </div>
                     </div>
@@ -50,12 +133,82 @@
             </div>
             <div class="col"></div>
         </div>
-        
-        
     </div>
     <br>
-    <!-- <p class="text-center">
-        <i class="fa-solid fa-paintbrush"></i>
-    </p> -->
-<!-- <hr> -->
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col"><h2 class="text-center">British Mammals Collection</h2></div>
+            <div class="col">
+                <div id="carouselMammals" class="carousel slide carousel-fade" data-ride="carousel">
+                    <!-- Carousel Wrapper -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-interval="20000">
+                            <div class="d-flex justify-content-center">
+                                <img src="{% static 'images/squirrel.jpg' %}" alt="squirrel in watercolour">
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-interval="20000">
+                            <div class="d-flex justify-content-center">
+                                <img src="{% static 'images/mouse_berries.jpg' %}" alt="mouse with berries in watercolour">
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-interval="20000">
+                            <div class="d-flex justify-content-center">
+                                <img src="{% static 'images/rabbit.jpg' %}" alt="rabbit in watercolour">
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-interval="20000">
+                            <div class="d-flex justify-content-center">
+                                <img src="{% static 'images/hedgehog.jpg' %}" alt="hedgehog in watercolour">
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-interval="20000">
+                            <div class="d-flex justify-content-center">
+                                <img src="{% static 'images/mouse_corn.jpg' %}" alt="mouse with corn in watercolour">
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-interval="20000">
+                            <div class="d-flex justify-content-center">
+                                <img src="{% static 'images/weasel.jpg' %}" alt="weasel in watercolour">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Controls -->
+                    <button class="carousel-control-prev" type="button" data-target="#carouselMammals" data-slide="prev">
+                      <span class="text-dark" aria-hidden="true"><i class="fa-solid fa-chevron-left fa-lg"></i></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-target="#carouselMammals" data-slide="next">
+                      <span class="text-dark" aria-hidden="true"><i class="fa-solid fa-chevron-right fa-lg"></i></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                    <!-- Thumbnails -->
+                    <div class="carousel-indicators">
+                        <div class="d-flex justify-content-center">
+                            <button type="button" data-target="#carouselMammals" data-slide-to="0" class="border-0 active" aria-current="true" aria-label="Slide 0">
+                                <img class="d-block w-100" src="{% static 'images/squirrel_thumb.jpg' %}" alt="">
+                            </button>
+                            <button type="button" data-target="#carouselMammals" data-slide-to="1" class="border-0" aria-label="Slide 1">
+                                <img class="d-block w-100" src="{% static 'images/mouse_berries_thumb.jpg' %}" alt="">
+                            </button>
+                            <button type="button" data-target="#carouselMammals" data-slide-to="2" class="border-0" aria-label="Slide 2">
+                                <img class="d-block w-100" src="{% static 'images/rabbit_thumb.jpg' %}" alt="">
+                            </button>
+                            <button type="button" data-target="#carouselMammals" data-slide-to="3" class="border-0" aria-label="Slide 3">
+                                <img class="d-block w-100" src="{% static 'images/hedgehog_thumb.jpg' %}" alt="">
+                            </button>
+                            <button type="button" data-target="#carouselMammals" data-slide-to="4" class="border-0" aria-label="Slide 4">
+                                <img class="d-block w-100" src="{% static 'images/mouse_corn_thumb.jpg' %}" alt="">
+                            </button>
+                            <button type="button" data-target="#carouselMammals" data-slide-to="5" class="border-0" aria-label="Slide 5">
+                                <img class="d-block w-100" src="{% static 'images/weasel_thumb.jpg' %}" alt="">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+    <br>
 {% endblock %}

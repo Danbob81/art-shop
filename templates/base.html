@@ -95,7 +95,7 @@
             <a class="nav-link text-dark menu-text" href="{% url 'gallery' %}">Gallery</a>
           </li>
           <li class="dropdown">
-            <a class="nav-link text-dark menu-text" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link text-dark menu-text" href="{% url 'shop' %}" id="dropdownMenuLink" aria-expanded="false">
               Shop
             </a>
             <ul class="dropdown-menu border-0" aria-labelledby="dropdownMenuLink">
@@ -112,7 +112,7 @@
       {% block content %}
       {% endblock %}
 
-      <footer class="container-fluid sticky-bottom">
+      <footer class="container-fluid">
         <div class="row bg-white text-dark">
           <div class="col-sm text-center">
             <span class="">
