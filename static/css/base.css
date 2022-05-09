@@ -40,6 +40,10 @@ body {
     bottom: 25px;
 }
 
+.card-img {
+    padding: 10% 10% 0 10%;
+}
+
 footer {
     margin: auto;
     position: relative;
