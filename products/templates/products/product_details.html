@@ -24,8 +24,45 @@
                 <p class="text-start">From the {{ product.category.friendly_name }}</p>
                 <br>
                 <p class="text-start">{{ product.description }}</p>
-                <br>
                 <p class="text-start">£{{ product.price }}</p>
+                {% with product.has_sizes as s %}
+                    {% if s %}
+                        {% if product.category.name == "prints_birds" %}
+                            <!-- Prints size -->
+                            <p>Size:</p>
+                            <select class="rounded-0" name="product_size" id="product_size">
+                                <option value="small">Small (30.5 x 40.6 cm)</option>
+                                <option value="medium">Medium (40.6 x 50.8 cm)</option>
+                                <option value="large">Large (45.7 x 61 cm)</option>
+                            </select>
+                        {% elif product.category.name == "prints_mammals" %}
+                            <p>Size:</p>
+                                <select class="rounded-0" name="product_size" id="product_size">
+                                    <option value="small">Small (30.5 x 40.6 cm)</option>
+                                    <option value="medium">Medium (40.6 x 50.8 cm)</option>
+                                    <option value="large">Large (45.7 x 61 cm)</option>
+                                </select>
+                        {% elif product.category.name == "prints_fantasy" %}
+                            <p>Size:</p>
+                                <select class="rounded-0" name="product_size" id="product_size">
+                                    <option value="small">Small (30.5 x 40.6 cm)</option>
+                                    <option value="medium">Medium (40.6 x 50.8 cm)</option>
+                                    <option value="large">Large (45.7 x 61 cm)</option>
+                                </select>
+                        {% else %}
+                            <!-- Clothing size -->
+                            <p>Size:</p>
+                            <select class="rounded-0" name="product_size" id="product_size">
+                                <option value="s">S</option>
+                                <option value="m">M</option>
+                                <option value="l">L</option>
+                                <option value="xl">XL</option>
+                            </select>
+                        {% endif %}
+                    {% endif %}
+                {% endwith %}
+                <br>
+                <br>
                 <a href="" class="btn btn-light btn-outline-dark rounded-0 text-uppercase text-center">Add to basket</a>
             </div>
         </div>
