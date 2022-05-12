@@ -68,8 +68,44 @@
         {% if basket_items %}
             {% for item in basket_items %}
                 <div class="col-2 basket-img"><img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-fluid"></div>
-                <div class="col-6 text-start"><p><strong>{{ item.product.name }}</strong></p></div>
-                <div class="col text-end">{{ item.quantity }}</div>
+                <div class="col-5 text-start">
+                    <p><strong>{{ item.product.name }}</strong></p>
+                    {% if item.product.has_sizes %}
+                        <p><strong>Size: </strong>{{ item.size|upper }}</p>
+                    {% endif %}
+                    <p class="small text-muted">SKU: {{ item.product.sku|upper }}</p>
+                </div>
+                <div class="col-2 text-end">
+                    <form class="form update-form" method="POST" action="">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <button class="decrement-qty btn btn-lg rounded-0"
+                                        data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                        <span>
+                                            <i class="fas fa-minus fa-sm"></i>
+                                        </span>
+                                    </button>
+                                </div>
+                                <input class="form-control form-control-sm qty_input border-0 text-center w-25" type="text" 
+                                    name="quantity" value="{{ item.quantity }}" min="1" max="99" 
+                                    data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                <div class="input-group-append">
+                                    <button class="increment-qty btn btn-lg rounded-0"
+                                        data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                        <span>
+                                            <i class="fas fa-plus fa-sm"></i>
+                                        </span>
+                                    </button>
+                                </div>
+                                {% if item.product.has_sizes %}
+                                    <input type="hidden" name="product_size" value="{{ item.size }}">
+                                {% endif %}
+                            </div>
+                        </div>
+                    </form>
+                </div>
                 <div class="col-2 text-end">£{{ item.product.price }}</div>
                 <div class="col text-end"><a href="" class="text-dark"><i class="fa-solid fa-xmark"></i></a></div>
                 <div class="row">
