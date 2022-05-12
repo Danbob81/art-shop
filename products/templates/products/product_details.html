@@ -38,7 +38,7 @@
                                     </span>
                                 </button>
                             </div>
-                            <input class="form-control form-control-sm qty_input border-0 text-center w-25" 
+                            <input class="form-control qty_input border-0 text-center w-25" type="number"
                                     name="quantity" value="1" min="1" max="99" 
                                     data-item_id="{{ product.product.id }}" id="id_qty_{{ product.product.id }}">
                             <div class="input-group-append">
@@ -54,41 +54,42 @@
                     <br>
                     {% with product.has_sizes as s %}
                         {% if s %}
-                            {% if product.category.name == "prints_birds" %}
+                            <!-- {% if product.category.name == "prints_birds" %} -->
                                 <!-- Prints size -->
-                                <p>Size:</p>
+                                <!-- <p>Size:</p>
                                 <select class="rounded-0" name="product_size" id="product_size">
-                                    <option value="small">Small (30.5 x 40.6 cm)</option>
+                                    <option value="small" selected>Small (30.5 x 40.6 cm)</option>
                                     <option value="medium">Medium (40.6 x 50.8 cm)</option>
                                     <option value="large">Large (45.7 x 61 cm)</option>
                                 </select>
                             {% elif product.category.name == "prints_mammals" %}
                                 <p>Size:</p>
                                     <select class="rounded-0" name="product_size" id="product_size">
-                                        <option value="small">Small (30.5 x 40.6 cm)</option>
+                                        <option value="small" selected>Small (30.5 x 40.6 cm)</option>
                                         <option value="medium">Medium (40.6 x 50.8 cm)</option>
                                         <option value="large">Large (45.7 x 61 cm)</option>
                                     </select>
                             {% elif product.category.name == "prints_fantasy" %}
                                 <p>Size:</p>
                                     <select class="rounded-0" name="product_size" id="product_size">
-                                        <option value="small">Small (30.5 x 40.6 cm)</option>
+                                        <option value="small" selected>Small (30.5 x 40.6 cm)</option>
                                         <option value="medium">Medium (40.6 x 50.8 cm)</option>
                                         <option value="large">Large (45.7 x 61 cm)</option>
                                     </select>
-                            {% else %}
+                            {% else %} -->
                                 <!-- Clothing size -->
-                                <p>Size:</p>
-                                <select class="rounded-0" name="product_size" id="product_size">
-                                    <option value="s">S</option>
-                                    <option value="m">M</option>
-                                    <option value="l">L</option>
-                                    <option value="xl">XL</option>
-                                </select>
-                            {% endif %}
+                                <p>Size:
+                                    <select class="rounded-0" name="product_size" id="product_size">
+                                        <option value="small">Small</option>
+                                        <option value="medium" selected>Medium</option>
+                                        <option value="large">Large</option>
+                                        <option value="extra large">Extra Large</option>
+                                    </select>
+                                </p>
+                            <!-- {% endif %} -->
                         {% endif %}
                     {% endwith %}
-                    <br>
+                    <!-- <br> -->
                     <br>
                     <input type="submit" class="btn btn-light btn-outline-dark rounded-0 text-uppercase text-center" value="Add to basket">
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">

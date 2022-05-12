@@ -76,7 +76,7 @@
                     <p class="small text-muted">SKU: {{ item.product.sku|upper }}</p>
                 </div>
                 <div class="col-2 text-end">
-                    <form class="form update-form" method="POST" action="">
+                    <form class="form update-form" method="POST" action="{% url 'update_basket' item.item_id %}">
                         {% csrf_token %}
                         <div class="form-group">
                             <div class="input-group">
@@ -84,18 +84,18 @@
                                     <button class="decrement-qty btn btn-lg rounded-0"
                                         data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
                                         <span>
-                                            <i class="fas fa-minus fa-sm"></i>
+                                            <i class="fas fa-minus"></i>
                                         </span>
                                     </button>
                                 </div>
-                                <input class="form-control form-control-sm qty_input border-0 text-center w-25" type="text" 
+                                <input class="form-control qty_input border-0 text-center w-25" type="number" 
                                     name="quantity" value="{{ item.quantity }}" min="1" max="99" 
                                     data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
                                 <div class="input-group-append">
                                     <button class="increment-qty btn btn-lg rounded-0"
                                         data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
                                         <span>
-                                            <i class="fas fa-plus fa-sm"></i>
+                                            <i class="fas fa-plus"></i>
                                         </span>
                                     </button>
                                 </div>
@@ -105,9 +105,14 @@
                             </div>
                         </div>
                     </form>
+                    <a class="update-item text-muted text-decoration-none text-center"><small>Update Quantity</small></a>
                 </div>
                 <div class="col-2 text-end">£{{ item.product.price }}</div>
-                <div class="col text-end"><a href="" class="text-dark"><i class="fa-solid fa-xmark"></i></a></div>
+                <div class="col text-end">
+                    <a class="remove-item text-dark" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}">
+                        <i class="fa-solid fa-xmark"></i>
+                    </a>
+                </div>
                 <div class="row">
                     <div class="col"><hr class="text-muted text-center"></div>
                 </div>
@@ -137,4 +142,36 @@
             <i class="fa-solid fa-paintbrush"></i>
         </p>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript">
+    $('.btt-link').click(function(e) {
+        window.scrollTo(0,0)
+    })
+</script>
+{% include 'products/includes/script_for_quantity.html' %}
+
+<script type="text/javascript">
+    // Update quantity on click
+    $('.update-item').click(function(e) {
+        let form = $(this).prev('.update-form');
+        form.submit();
+    })
+
+    // Remove item and reload on click
+    $('.remove-item').click(function(e) {
+        let csrfToken = "{{ csrf_token }}";
+        let itemId = $(this).attr('id').split('remove_')[1];
+        let size = $(this).data('product_size');
+        let url = `/basket/remove/${itemId}/`;
+        let data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size};
+
+        $.post(url, data)
+        .done(function() {
+            location.reload();
+        });
+    })
+</script>
 {% endblock %}
