@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load basket_tools %}
 
 {% block content %}
     <div class="container mb-2">
@@ -107,7 +108,7 @@
                     </form>
                     <a class="update-item text-muted text-decoration-none text-center"><small>Update Quantity</small></a>
                 </div>
-                <div class="col-2 text-end">£{{ item.product.price }}</div>
+                <div class="col-2 text-end">£{{ item.product.price | calc_subtotal:item.quantity }}</div>
                 <div class="col text-end">
                     <a class="remove-item text-dark" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}">
                         <i class="fa-solid fa-xmark"></i>
