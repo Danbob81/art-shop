@@ -12,132 +12,90 @@
                 <br>
             </div>
         </div>
-       <div class="row">
-           <div class="col">
-               <h2>Shopping Basket</h2>
-           </div>
-       </div>
-       <!-- <div class="row">
-           <div class="col">
-            <hr>
-               {% if basket_items %}
-                    <div class="table-responsive">
-                        <table class="table table-sm table-borderless">
-                            <thead>
-                              <tr>
-                                <th scope="col"></th>
-                                <th scope="col"></th>
-                                <th scope="col"></th>
-                                <th scope="col"></th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                                {% for item in basket_items %}
-                                <tr>
-                                    <td class="py-3 w-25"><img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-fluid"></td>
-                                    <td class="py-3">
-                                        <p>
-                                            <strong>{{ item.product.name }}</strong>
-                                        </p>
-                                    </td>
-                                    <td class="py-3">{{ item.quantity }}</td>
-                                    <td class="py-3 text-end">£{{ item.product.price }}</td>
-                                    <td class="py-3">X</td>
-                                </tr>
-                                {% endfor %}
-                                <tr>
-                                    <td colspan="3" class="text-end pt-5">
-                                        <h5><strong>Subtotal:</strong></h5>
-                                    </td>
-                                    <td class="text-end pt-5">
-                                        <h5><strong>£{{ total|floatformat:2 }}</strong></h5>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="4" class="text-end"><a href="" class="btn btn-light btn-lg btn-outline-dark rounded-0 text-uppercase text-center">Checkout</a></td>
-                                </tr>
-                            </tbody>
-                          </table>
+        <div class="row">
+            <div class="col">
+                <h2>Shopping Basket</h2>
+            </div>
+        </div>
+        <div class="row">
+            {% if basket_items %}
+                {% for item in basket_items %}
+                    <div class="col-2 basket-img"><img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-fluid"></div>
+                    <div class="col-5 text-start">
+                        <p><strong>{{ item.product.name }}</strong></p>
+                        {% if item.product.has_sizes %}
+                            <p><strong>Size: </strong>{{ item.size|upper }}</p>
+                        {% endif %}
+                        <p class="small text-muted">SKU: {{ item.product.sku|upper }}</p>
                     </div>
-               {% else %}
-                    <p class="lead mb-5">There is nothing in your basket.</p>
-                    <a href="{% url 'products' %}" class="btn btn-light btn-outline-dark rounded-0 text-uppercase text-center">Continue Shopping</a>
-               {% endif %}
-           </div>
-       </div> -->
-    <div class="row">
-        {% if basket_items %}
-            {% for item in basket_items %}
-                <div class="col-2 basket-img"><img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-fluid"></div>
-                <div class="col-5 text-start">
-                    <p><strong>{{ item.product.name }}</strong></p>
-                    {% if item.product.has_sizes %}
-                        <p><strong>Size: </strong>{{ item.size|upper }}</p>
-                    {% endif %}
-                    <p class="small text-muted">SKU: {{ item.product.sku|upper }}</p>
-                </div>
-                <div class="col-2 text-end">
-                    <form class="form update-form" method="POST" action="{% url 'update_basket' item.item_id %}">
-                        {% csrf_token %}
-                        <div class="form-group">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <button class="decrement-qty btn btn-lg rounded-0"
-                                        data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
-                                        <span>
-                                            <i class="fas fa-minus"></i>
-                                        </span>
-                                    </button>
+                    <div class="col-2 text-end">
+                        <form class="form update-form" method="POST" action="{% url 'update_basket' item.item_id %}">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <button class="decrement-qty btn btn-lg rounded-0"
+                                            data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                            <span>
+                                                <i class="fas fa-minus"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <input class="form-control qty_input border-0 text-center w-25" type="number" 
+                                        name="quantity" value="{{ item.quantity }}" min="1" max="99" 
+                                        data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                    <div class="input-group-append">
+                                        <button class="increment-qty btn btn-lg rounded-0"
+                                            data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                            <span>
+                                                <i class="fas fa-plus"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    {% if item.product.has_sizes %}
+                                        <input type="hidden" name="product_size" value="{{ item.size }}">
+                                    {% endif %}
                                 </div>
-                                <input class="form-control qty_input border-0 text-center w-25" type="number" 
-                                    name="quantity" value="{{ item.quantity }}" min="1" max="99" 
-                                    data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
-                                <div class="input-group-append">
-                                    <button class="increment-qty btn btn-lg rounded-0"
-                                        data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
-                                        <span>
-                                            <i class="fas fa-plus"></i>
-                                        </span>
-                                    </button>
-                                </div>
-                                {% if item.product.has_sizes %}
-                                    <input type="hidden" name="product_size" value="{{ item.size }}">
-                                {% endif %}
                             </div>
-                        </div>
-                    </form>
-                    <a class="update-item text-muted text-decoration-none text-center"><small>Update Quantity</small></a>
-                </div>
-                <div class="col-2 text-end">£{{ item.product.price | calc_subtotal:item.quantity }}</div>
-                <div class="col text-end">
-                    <a class="remove-item text-dark" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}">
-                        <i class="fa-solid fa-xmark"></i>
-                    </a>
+                        </form>
+                        <a class="update-item text-muted text-decoration-none text-center"><small>Update Quantity</small></a>
+                    </div>
+                    <div class="col-2 text-end">£{{ item.product.price | calc_subtotal:item.quantity }}</div>
+                    <div class="col text-end">
+                        <a class="remove-item text-dark" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}">
+                            <i class="fa-solid fa-xmark"></i>
+                        </a>
+                    </div>
+                    <div class="row">
+                        <div class="col"><hr class="text-muted text-center"></div>
+                    </div>
+                {% endfor %}
+            {% else %}
+            <div class="col-sm-12 text-center">
+                <p class="lead mb-5">
+                    There is nothing in your basket.
+                    <br><br>
+                    <a href="{% url 'shop' %}" class="btn btn-light btn-lg btn-outline-dark rounded-0 text-uppercase text-center">Continue Shopping</a>
+                </p>
+            </div>
+            {% endif %}
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-lg-8"></div>
+            <div class="col-sm-12 col-lg-4">
+                <div class="row">
+                    <div class="col"><h5 class="text-start"><strong>Subtotal:</strong></h5></div>
+                    <div class="col"><h5 class="text-end"><strong>£{{ total|floatformat:2 }}</strong></h5></div>
                 </div>
                 <div class="row">
-                    <div class="col"><hr class="text-muted text-center"></div>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p class="lead mb-5">There is nothing in your basket.</p>
-            <a href="{% url 'products' %}" class="btn btn-light btn-outline-dark rounded-0 text-uppercase text-center">Continue Shopping</a>
-        {% endif %}
-    </div>
-    <div class="row">
-        <div class="col-sm-12 col-lg-8"></div>
-        <div class="col-sm-12 col-lg-4">
-            <div class="row">
-                <div class="col"><h5 class="text-start"><strong>Subtotal:</strong></h5></div>
-                <div class="col"><h5 class="text-end"><strong>£{{ total|floatformat:2 }}</strong></h5></div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <a href="" class="btn btn-light btn-lg btn-outline-dark rounded-0 text-uppercase text-center">Checkout</a>
+                    <div class="col">
+                        <a href="" class="btn btn-light btn-lg btn-outline-dark rounded-0 text-uppercase text-center">Checkout</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
+    <div class="row">
         <br>
         <p class="text-center">
             <i class="fa-solid fa-paintbrush"></i>

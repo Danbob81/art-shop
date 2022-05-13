@@ -27,6 +27,7 @@ class Product(models.Model):
     name = models.CharField(max_length=254)
     description = models.TextField()
     has_sizes = models.BooleanField(default=False, null=True, blank=True)
+    quantity = models.PositiveSmallIntegerField(default=1, null=True, blank=False)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     image = models.ImageField(null=True, blank=True)
 
