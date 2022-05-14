@@ -20,7 +20,13 @@
         <div class="row">
             {% if basket_items %}
                 {% for item in basket_items %}
-                    <div class="col-2 basket-img"><img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-fluid"></div>
+                    <div class="col-2 basket-img">
+                        {% if item.product.image %}
+                            <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-fluid">
+                        {% else %}
+                            <img src="{{ MEDIA_URL }}no_image.png" alt="{{ item.product.name }}" class="img-fluid">
+                        {% endif %}
+                    </div>
                     <div class="col-5 text-start">
                         <p><strong>{{ item.product.name }}</strong></p>
                         {% if item.product.has_sizes %}
@@ -89,7 +95,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <a href="" class="btn btn-light btn-lg btn-outline-dark rounded-0 text-uppercase text-center">Checkout</a>
+                        <a href="{% url 'checkout' %}" class="btn btn-light btn-lg btn-outline-dark rounded-0 text-uppercase text-center">Checkout</a>
                     </div>
                 </div>
             </div>
