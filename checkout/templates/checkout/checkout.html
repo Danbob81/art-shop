@@ -23,36 +23,60 @@
         </div>
         <div class="row">
             <div class="col-sm-12 col-md-6">
-                <form action="" method="POST">
-                    {% csrf_token %}
-                    <div class="accordion" id="accordionExample">
-                        <div class="card">
-                            <div class="card-header" id="headingOne">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Your Details
-                                    </button>
-                                </h2>
+                <!-- <div class="accordion" id="accordionCheckout"> -->
+                    <form action="" method="POST" id="payment-form">
+                        {% csrf_token %}
+                        <div class="card border-0 checkout-card">
+                            <div class="card-header bg-white" id="headingOne">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="mb-0">
+                                            Your Details
+                                        </h5>
+                                    </div>
+                                    <!-- <div class="col text-end">
+                                        <button class="btn btn-link btn-block text-dark text-decoration-none text-end" type="button" 
+                                            data-toggle="collapse" data-target="#collapseDetails" aria-expanded="true" aria-controls="collapseDetails">
+                                            Edit
+                                        </button>
+                                    </div> -->
+                                </div>
                             </div>
-                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <!-- <div id="collapseDetails" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionCheckout"> -->
                                 <div class="card-body">
-                                    <fieldset>
+                                    <fieldset class="rounded px-3 mb-5">
                                         {{ order_form.full_name | as_crispy_field }}
                                         {{ order_form.email | as_crispy_field }}
                                         {{ order_form.phone_number | as_crispy_field }}
+                                        <!-- <a class="btn btn-light btn-sm btn-outline-dark rounded-0 text-uppercase text-center" data-toggle="collapse" 
+                                            data-target="#collapseAddress" aria-expanded="false" aria-controls="collapseAddress">
+                                            Continue
+                                        </a> -->
+                                        <!-- <button class="btn btn-light btn-sm btn-outline-dark rounded-0 text-uppercase text-center" type="submit" 
+                                            data-toggle="collapse" data-target="#collapseAddress" aria-expanded="false" aria-controls="collapseAddress">
+                                            Continue
+                                        </button> -->
                                     </fieldset>
                                 </div>
-                            </div>
+                            <!-- </div> -->
                         </div>
-                        <div class="card">
-                            <div class="card-header" id="headingTwo">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Shipping Address
-                                    </button>
-                                </h2>
+                        <div class="card border-0 checkout-card">
+                            <div class="card-header bg-white" id="headingTwo">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="mb-0">
+                                            Shipping Address
+                                        </h5>
+                                    </div>
+                                    <!-- <div class="col text-end">
+                                        <button class="btn btn-link btn-block text-dark text-decoration-none text-end" type="button" 
+                                            data-toggle="collapse" data-target="#collapseAddress" aria-expanded="true" aria-controls="collapseAddress">
+                                            Edit
+                                        </button>
+                                    </div> -->
+                                </div>
                             </div>
-                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                            <!-- <div id="collapseAddress" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionCheckout"> -->
                                 <div class="card-body">
                                     <fieldset>
                                         {{ order_form.street_address1 | as_crispy_field }}
@@ -61,30 +85,44 @@
                                         {{ order_form.county | as_crispy_field }}
                                         {{ order_form.postcode | as_crispy_field }}
                                         {{ order_form.country | as_crispy_field }}
-                                        <div class="form_check form-check form-check-inline mr-0">
+                                        <div class="form_check form-check form-check-inline text-dark mr-0">
                                             {% if user.is_authenticated %}
                                                 <label class="form-check-label" for="id-save-info">Save my details for next time.</label>
-                                                <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+                                                <input class="form-check-input text-dark ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
                                             {% else %}
                                                 <label class="form-check-label" for="id-save-info">
-                                                    <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or
-                                                    <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+                                                    <a class="text-dark" href="{% url 'account_signup' %}">Create an account</a> or
+                                                    <a class="text-dark" href="{% url 'account_login' %}">login</a> to save this information
                                                 </label>
                                             {% endif %}
                                         </div>
+                                        <!-- <div>
+                                            <a class="btn btn-light btn-sm btn-outline-dark rounded-0 text-uppercase text-center" data-toggle="collapse" 
+                                                data-target="#collapsePayment" aria-expanded="false" aria-controls="collapsePayment">
+                                                Continue
+                                            </a>
+                                        </div> -->
                                     </fieldset>
                                 </div>
-                            </div>
+                            <!-- </div> -->
                         </div>
-                        <div class="card">
-                            <div class="card-header" id="headingThree">
-                                <h2 class="mb-0">
-                                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        Payment
-                                    </button>
-                                </h2>
+                        <div class="card border-0 checkout-card">
+                            <div class="card-header bg-white" id="headingThree">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="mb-0">
+                                            Payment
+                                        </h5>
+                                    </div>
+                                    <div class="col text-end">
+                                        <!-- <button class="btn btn-link btn-block text-dark text-decoration-none text-end" type="button" 
+                                            data-toggle="collapse" data-target="#collapsePayment" aria-expanded="true" aria-controls="collapsePayment">
+                                            Edit
+                                        </button> -->
+                                    </div>
+                                </div>
                             </div>
-                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <!-- <div id="collapsePayment" class="collapse" aria-labelledby="headingThree" data-parent="#accordionCheckout"> -->
                                 <div class="card-body">
                                     <fieldset class="px-3">
                                         <!-- A stripe card element will go here -->
@@ -94,14 +132,22 @@
                                         <!-- Pass the client secret to the view so we can get the payment intent id -->
                                         <input type="hidden" value="{{ client_secret }}" name="client_secret">
                                     </fieldset>
+                                    <div class="row justify-content-center">
+                                        <div class="col justify-content-center">
+                                            <br>
+                                            <button type="submit" class="btn btn-light btn-lg btn-outline-dark rounded-0 text-uppercase text-center">
+                                                Complete Order
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            <!-- </div> -->
                         </div>
-                    </div>
-                </form>
+                    </form>
+                <!-- </div> -->
             </div>
             <div class="col-sm-12 col-md-6">
-                <div class="card">
+                <div class="card border-0">
                     <div class="card-body">
                         <h5 class="card-title">Order Summary <br> <small class="text-muted">(Items: {{ product_count }})</small></h5>
                         {% for item in basket_items %}
@@ -122,6 +168,13 @@
                                 </div>
                                 <div class="col">
                                     <p><strong>£{{ item.product.price | calc_subtotal:item.quantity }}</strong></p>
+                                    <div class="row">
+                                        <div class="col">
+                                            <a href="{% url 'view_basket' %}" class="text-muted text-decoration-none">
+                                                <small>Amend Item</small>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <br>
@@ -151,4 +204,11 @@
             <i class="fa-solid fa-paintbrush"></i>
         </p>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
