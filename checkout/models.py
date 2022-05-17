@@ -17,10 +17,10 @@ class Order(models.Model):
     email = models.EmailField(max_length=80, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
     street_address1 = models.CharField(max_length=60, null=False, blank=False)
-    street_address2 = models.CharField(max_length=60, null=False, blank=True)
+    street_address2 = models.CharField(max_length=60, null=True, blank=True)
     town_or_city = models.CharField(max_length=60, null=False, blank=False)
-    county = models.CharField(max_length=60, null=False, blank=False)
-    postcode = models.CharField(max_length=20, null=False, blank=False)
+    county = models.CharField(max_length=60, null=True, blank=False)
+    postcode = models.CharField(max_length=20, null=True, blank=False)
     country = CountryField(blank_label='Country *', null=False, blank=False)
     date = models.DateTimeField(auto_now_add=True)
     sub_total = models.DecimalField(max_digits=10, decimal_places=2, default=0)
@@ -33,11 +33,17 @@ class Order(models.Model):
         return uuid.uuid4().hex.upper()
 
     def update_total(self):
-        """ Update grand total each time a line item is added,
-        accounting for delivery costs """
-        self.sub_total = self.lineitems.aggregate(Sum('lineitem_total')),\
-            ['lineitem_total__sum'] or 0
-        self.delivery = self.sub_total * settings.DELIVERY_PERCENTAGE / 100
+        """
+            Update the grand total each time a line item is added,
+            accounting for delivery costs.
+        """
+        self.sub_total = self.lineitems.aggregate(
+                            Sum('lineitem_total'))['lineitem_total__sum'] or 0
+        if self.sub_total < settings.FREE_DELIVERY_THRESHOLD:
+            self.delivery = self.sub_total * \
+                                    settings.DELIVERY_PERCENTAGE / 100
+        else:
+            self.delivery = 0
         self.grand_total = self.sub_total + self.delivery
         self.save()
 

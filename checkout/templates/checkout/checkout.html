@@ -23,128 +23,90 @@
         </div>
         <div class="row">
             <div class="col-sm-12 col-md-6">
-                <!-- <div class="accordion" id="accordionCheckout"> -->
-                    <form action="" method="POST" id="payment-form">
-                        {% csrf_token %}
-                        <div class="card border-0 checkout-card">
-                            <div class="card-header bg-white" id="headingOne">
-                                <div class="row">
-                                    <div class="col">
-                                        <h5 class="mb-0">
-                                            Your Details
-                                        </h5>
-                                    </div>
-                                    <!-- <div class="col text-end">
-                                        <button class="btn btn-link btn-block text-dark text-decoration-none text-end" type="button" 
-                                            data-toggle="collapse" data-target="#collapseDetails" aria-expanded="true" aria-controls="collapseDetails">
-                                            Edit
-                                        </button>
-                                    </div> -->
+                <form action="" method="POST" id="payment-form">
+                    {% csrf_token %}
+                    <div class="card border-0 checkout-card">
+                        <div class="card-header bg-white" id="headingOne">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="mb-0">
+                                        Your Details
+                                    </h5>
                                 </div>
                             </div>
-                            <!-- <div id="collapseDetails" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionCheckout"> -->
-                                <div class="card-body">
-                                    <fieldset class="rounded px-3 mb-5">
-                                        {{ order_form.full_name | as_crispy_field }}
-                                        {{ order_form.email | as_crispy_field }}
-                                        {{ order_form.phone_number | as_crispy_field }}
-                                        <!-- <a class="btn btn-light btn-sm btn-outline-dark rounded-0 text-uppercase text-center" data-toggle="collapse" 
-                                            data-target="#collapseAddress" aria-expanded="false" aria-controls="collapseAddress">
-                                            Continue
-                                        </a> -->
-                                        <!-- <button class="btn btn-light btn-sm btn-outline-dark rounded-0 text-uppercase text-center" type="submit" 
-                                            data-toggle="collapse" data-target="#collapseAddress" aria-expanded="false" aria-controls="collapseAddress">
-                                            Continue
-                                        </button> -->
-                                    </fieldset>
-                                </div>
-                            <!-- </div> -->
                         </div>
-                        <div class="card border-0 checkout-card">
-                            <div class="card-header bg-white" id="headingTwo">
-                                <div class="row">
-                                    <div class="col">
-                                        <h5 class="mb-0">
-                                            Shipping Address
-                                        </h5>
-                                    </div>
-                                    <!-- <div class="col text-end">
-                                        <button class="btn btn-link btn-block text-dark text-decoration-none text-end" type="button" 
-                                            data-toggle="collapse" data-target="#collapseAddress" aria-expanded="true" aria-controls="collapseAddress">
-                                            Edit
-                                        </button>
-                                    </div> -->
+                            <div class="card-body">
+                                <fieldset class="rounded px-3 mb-5">
+                                    {{ order_form.full_name | as_crispy_field }}
+                                    {{ order_form.email | as_crispy_field }}
+                                    {{ order_form.phone_number | as_crispy_field }}
+                                </fieldset>
+                            </div>
+                    </div>
+                    <div class="card border-0 checkout-card">
+                        <div class="card-header bg-white" id="headingTwo">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="mb-0">
+                                        Shipping Address
+                                    </h5>
                                 </div>
                             </div>
-                            <!-- <div id="collapseAddress" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionCheckout"> -->
-                                <div class="card-body">
-                                    <fieldset>
-                                        {{ order_form.street_address1 | as_crispy_field }}
-                                        {{ order_form.street_address2 | as_crispy_field }}
-                                        {{ order_form.town_or_city | as_crispy_field }}
-                                        {{ order_form.county | as_crispy_field }}
-                                        {{ order_form.postcode | as_crispy_field }}
-                                        {{ order_form.country | as_crispy_field }}
-                                        <div class="form_check form-check form-check-inline text-dark mr-0">
-                                            {% if user.is_authenticated %}
-                                                <label class="form-check-label" for="id-save-info">Save my details for next time.</label>
-                                                <input class="form-check-input text-dark ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
-                                            {% else %}
-                                                <label class="form-check-label" for="id-save-info">
-                                                    <a class="text-dark" href="{% url 'account_signup' %}">Create an account</a> or
-                                                    <a class="text-dark" href="{% url 'account_login' %}">login</a> to save this information
-                                                </label>
-                                            {% endif %}
-                                        </div>
-                                        <!-- <div>
-                                            <a class="btn btn-light btn-sm btn-outline-dark rounded-0 text-uppercase text-center" data-toggle="collapse" 
-                                                data-target="#collapsePayment" aria-expanded="false" aria-controls="collapsePayment">
-                                                Continue
-                                            </a>
-                                        </div> -->
-                                    </fieldset>
-                                </div>
-                            <!-- </div> -->
                         </div>
-                        <div class="card border-0 checkout-card">
-                            <div class="card-header bg-white" id="headingThree">
-                                <div class="row">
-                                    <div class="col">
-                                        <h5 class="mb-0">
-                                            Payment
-                                        </h5>
+                            <div class="card-body">
+                                <fieldset>
+                                    {{ order_form.street_address1 | as_crispy_field }}
+                                    {{ order_form.street_address2 | as_crispy_field }}
+                                    {{ order_form.town_or_city | as_crispy_field }}
+                                    {{ order_form.county | as_crispy_field }}
+                                    {{ order_form.postcode | as_crispy_field }}
+                                    {{ order_form.country | as_crispy_field }}
+                                    <div class="form_check form-check form-check-inline text-dark mr-0">
+                                        {% if user.is_authenticated %}
+                                            <label class="form-check-label" for="id-save-info">Save my details for next time.</label>
+                                            <input class="form-check-input text-dark ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+                                        {% else %}
+                                            <label class="form-check-label" for="id-save-info">
+                                                <a class="text-dark" href="{% url 'account_signup' %}">Create an account</a> or
+                                                <a class="text-dark" href="{% url 'account_login' %}">login</a> to save this information
+                                            </label>
+                                        {% endif %}
                                     </div>
-                                    <div class="col text-end">
-                                        <!-- <button class="btn btn-link btn-block text-dark text-decoration-none text-end" type="button" 
-                                            data-toggle="collapse" data-target="#collapsePayment" aria-expanded="true" aria-controls="collapsePayment">
-                                            Edit
-                                        </button> -->
-                                    </div>
+                                </fieldset>
+                            </div>
+                    </div>
+                    <div class="card border-0 checkout-card">
+                        <div class="card-header bg-white" id="headingThree">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="mb-0">
+                                        Payment
+                                    </h5>
+                                </div>
+                                <div class="col text-end">
                                 </div>
                             </div>
-                            <!-- <div id="collapsePayment" class="collapse" aria-labelledby="headingThree" data-parent="#accordionCheckout"> -->
-                                <div class="card-body">
-                                    <fieldset class="px-3">
-                                        <!-- A stripe card element will go here -->
-                                        <div class="mb-3" id="card-element"></div>
-                                        <!-- Used to display form errors -->
-                                        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
-                                        <!-- Pass the client secret to the view so we can get the payment intent id -->
-                                        <input type="hidden" value="{{ client_secret }}" name="client_secret">
-                                    </fieldset>
-                                    <div class="row justify-content-center">
-                                        <div class="col justify-content-center">
-                                            <br>
-                                            <button type="submit" class="btn btn-light btn-lg btn-outline-dark rounded-0 text-uppercase text-center">
-                                                Complete Order
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            <!-- </div> -->
                         </div>
-                    </form>
-                <!-- </div> -->
+                        <div class="card-body">
+                            <fieldset class="px-3">
+                                <!-- A stripe card element will go here -->
+                                <div class="mb-3" id="card-element"></div>
+                                <!-- Used to display form errors -->
+                                <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                                <!-- Pass the client secret to the view so we can get the payment intent id -->
+                                <input type="hidden" value="{{ client_secret }}" name="client_secret">
+                            </fieldset>
+                            <div class="row justify-content-center">
+                                <div class="col justify-content-center">
+                                    <br>
+                                    <button type="submit" class="btn btn-light btn-lg btn-outline-dark rounded-0 text-uppercase text-center">
+                                        Complete Order
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
             <div class="col-sm-12 col-md-6">
                 <div class="card border-0">
