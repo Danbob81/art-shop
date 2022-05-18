@@ -17,11 +17,129 @@
         </div>
         <div class="row">
             <div class="col">
-                <h2>Thank you for your order.</h2>
+                <h2 class="">Thank you for your order.</h2>
+                <p class="">A confirmation email has been sent to <strong>{{ order.email }}</strong></p>
             </div>
         </div>
         <div class="row">
-
+            <div class="col-sm-12 col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Order Summary:</h5>
+                        <p class="">Your order number is <strong>{{ order.order_number }}</strong></p>
+                        <div class="row mb-0">
+                            <div class="col-6">
+                                <p class="mb-1 mt-0 small text-muted">Item(s)</p>
+                            </div>
+                            <div class="col-3 pl-0">
+                                <p class="mb-1 mt-0 small text-muted">Qty</p>
+                            </div>
+                            <div class="col-3 pl-0">
+                                <p class="mb-1 mt-0 small text-muted">Each</p>
+                            </div>
+                            <!-- <div class="col-2 text-right pl-0">
+                                <p class="mb-1 mt-0 small text-muted">Subtotal</p>
+                            </div> -->
+                        </div>
+                        <hr>
+                        {% for item in order.lineitems.all %}
+                        <div class="row mb-0">
+                            <div class="col-3 mb-1">
+                                <div>
+                                    {% if item.product.image %}
+                                        <img src="{{ item.product.image.url }}" alt="{{ product.name }}" class="w-100">
+                                    {% else %}
+                                        <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" class="w-100">
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-3 pl-0">
+                                <p class="small">
+                                    {{ item.product.name }}
+                                </p>
+                            </div>
+                            <div class="col-3 pl-0">
+                                <p class="small">
+                                    {{ item.quantity }}
+                                </p>
+                            </div>
+                            <div class="col-3 pl-0">
+                                <p class="small">
+                                    £{{ item.product.price }}
+                                </p>
+                            </div>
+                            <!-- <div class="col-2 text-right pl-0">
+                                <p class="small">£{{ item.product.price }}</p>
+                            </div> -->
+                        </div>
+                        {% endfor %}
+                        <hr>
+                        <div class="row">
+                            <div class="col">
+                                <p class="mb-1 mt-0 small text-muted">Deliver To:</p>
+                                <p class="mb-0">{{ order.full_name }}</p>
+                                <p class="mb-0">{{ order.street_address1 }}</p>
+                                {% if order.street_address2 %}
+                                    <p class="mb-0">{{ order.street_address2 }}</p>
+                                {% endif %}
+                                <p class="mb-0">{{ order.town_or_city }}</p>
+                                <p class="mb-0">{{ order.county }}</p>
+                                <p class="mb-0">{{ order.postcode }}</p>
+                                <p class="mb-0">{{ order.country }}</p>
+                                <br>
+                                <p class="mb-0">{{ order.phone_number }}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <p class="mb-0 text-muted">Subtotal</p>
+                            </div>
+                            <div class="col-12 col-md-8 text-end">
+                                <p class="mb-0">£{{ order.sub_total }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <p class="mb-0 text-muted">Delivery</p>
+                            </div>
+                            <div class="col-12 col-md-8 text-end">
+                                <p class="mb-0">£{{ order.delivery }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <p class="mb-0 text-muted"><strong>Grand Total</strong></p>
+                            </div>
+                            <div class="col-12 col-md-8 text-end">
+                                <p class="mb-0"><strong>£{{ order.grand_total }}</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-6">
+                <div class="card border-0">
+                    <div class="card-body text-center">
+                        <img src="{% static 'images/cherry_blossom.jpg' %}" alt="watercolour painting of cherry blossom" class="img-fluid">
+                        <p>
+                            Thank you for supporting me by purchasing my artwork. <br>
+                            It means so much to me.
+                        </p>
+                        <br>
+                        <p>
+                            If you would like to know more or keep up to date with upcoming collections, please 
+                            follow me on Facebook or Instagram via the links below.
+                        </p>
+                        <br>
+                        <p class="text-center">
+                            <a class="text-dark" href="https://www.facebook.com/danandlinz.higginson" target="_blank"><i class="fa-brands fa-facebook-square fa-2xl"></i></a>
+                            <a class="text-dark" href="https://www.instagram.com/madgeekmommy/?hl=en" target="_blank"><i class="fa-brands fa-instagram-square fa-2xl"></i></a>
+                          </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="row">
         <br>
