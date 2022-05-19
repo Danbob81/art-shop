@@ -27,14 +27,15 @@
                     <div class="card-body">
                         <h5 class="card-title">Order Summary:</h5>
                         <p class="">Your order number is <strong>{{ order.order_number }}</strong></p>
+                        <hr>
                         <div class="row mb-0">
                             <div class="col-6">
                                 <p class="mb-1 mt-0 small text-muted">Item(s)</p>
                             </div>
-                            <div class="col-3 pl-0">
+                            <div class="col-3 pl-0 text-end">
                                 <p class="mb-1 mt-0 small text-muted">Qty</p>
                             </div>
-                            <div class="col-3 pl-0">
+                            <div class="col pl-0 text-end">
                                 <p class="mb-1 mt-0 small text-muted">Each</p>
                             </div>
                             <!-- <div class="col-2 text-right pl-0">
@@ -58,19 +59,16 @@
                                     {{ item.product.name }}
                                 </p>
                             </div>
-                            <div class="col-3 pl-0">
+                            <div class="col-3 pl-0 text-end">
                                 <p class="small">
                                     {{ item.quantity }}
                                 </p>
                             </div>
-                            <div class="col-3 pl-0">
+                            <div class="col pl-0 text-end">
                                 <p class="small">
                                     £{{ item.product.price }}
                                 </p>
                             </div>
-                            <!-- <div class="col-2 text-right pl-0">
-                                <p class="small">£{{ item.product.price }}</p>
-                            </div> -->
                         </div>
                         {% endfor %}
                         <hr>
@@ -92,26 +90,26 @@
                         </div>
                         <hr>
                         <div class="row">
-                            <div class="col-12 col-md-4">
+                            <div class="col col-md-4">
                                 <p class="mb-0 text-muted">Subtotal</p>
                             </div>
-                            <div class="col-12 col-md-8 text-end">
+                            <div class="col col-md-8 text-end">
                                 <p class="mb-0">£{{ order.sub_total }}</p>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12 col-md-4">
+                            <div class="col col-md-4">
                                 <p class="mb-0 text-muted">Delivery</p>
                             </div>
-                            <div class="col-12 col-md-8 text-end">
+                            <div class="col col-md-8 text-end">
                                 <p class="mb-0">£{{ order.delivery }}</p>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12 col-md-4">
+                            <div class="col col-md-4">
                                 <p class="mb-0 text-muted"><strong>Grand Total</strong></p>
                             </div>
-                            <div class="col-12 col-md-8 text-end">
+                            <div class="col col-md-8 text-end">
                                 <p class="mb-0"><strong>£{{ order.grand_total }}</strong></p>
                             </div>
                         </div>
