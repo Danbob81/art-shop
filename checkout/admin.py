@@ -16,6 +16,7 @@ class OrderAdmin(admin.ModelAdmin):
     readonly_fields = (
         'order_number', 'date', 'delivery',
         'sub_total', 'grand_total',
+        'original_basket', 'stripe_pid',
     )
 
     fields = (
@@ -23,7 +24,7 @@ class OrderAdmin(admin.ModelAdmin):
         'email', 'phone_number', 'street_address1',
         'street_address2', 'town_or_city', 'county',
         'postcode', 'country', 'sub_total', 'delivery',
-        'grand_total',
+        'grand_total', 'original_basket', 'stripe_pid',
     )
 
     list_display = (
