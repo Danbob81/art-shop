@@ -28,7 +28,7 @@
                         <h5 class="card-title">Order Summary <br> <small class="text-muted">(Items: {{ product_count }})</small></h5>
                         {% for item in basket_items %}
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col">
                                 {% if item.product.image %}
                                 <img class="w-100" src="{{ item.product.image.url }}" alt="{{ product.name }}">
                                 {% else %}
@@ -42,7 +42,7 @@
                                 {% endif %}
                                 <p><small>Qty: {{ item.quantity }}</small></p>
                             </div>
-                            <div class="col-12 text-end">
+                            <div class="col text-end">
                                 <p><strong>£{{ item.product.price | calc_subtotal:item.quantity }}</strong></p>
                                 <div class="row">
                                     <div class="col">
@@ -158,8 +158,6 @@
                 </form>
             </div>
         </div>
-    </div>
-    <div class="row">
         <br>
         <p class="text-center">
             <i class="fa-solid fa-paintbrush"></i>

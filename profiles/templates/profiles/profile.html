@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container mb-2">
+        <div class="row justify-content-center">
+            <div class="col">
+                <p class="text-center">
+                    <i class="fa-solid fa-paintbrush"></i>
+                </p>
+                <br>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col text-center">
+                <h2>My Profile</h2>
+            </div>
+        </div>
+    </div>
+    <br>
+    <p class="text-center">
+        <i class="fa-solid fa-paintbrush"></i>
+    </p>
+{% endblock %}
