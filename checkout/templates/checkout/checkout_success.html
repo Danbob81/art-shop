@@ -120,19 +120,30 @@
                 <div class="card border-0">
                     <div class="card-body text-center">
                         <img src="{% static 'images/cherry_blossom.jpg' %}" alt="watercolour painting of cherry blossom" class="img-fluid">
-                        <p>
-                            Thank you for supporting me by purchasing my artwork. <br>
-                            It means so much to me.
-                        </p>
-                        <br>
-                        <p>
-                            If you would like to know more or keep up to date with upcoming collections, please 
-                            follow me on Instagram via the link below.
-                        </p>
-                        <br>
+                        {% if from_profile %}
                         <p class="text-center">
-                            <a class="text-dark" href="https://www.instagram.com/madgeekmommy/?hl=en" target="_blank"><i class="fa-brands fa-instagram-square fa-2xl"></i></a>
-                          </p>
+                                <br>
+                                <a href="{% url 'profile' %}" class="btn btn-light btn-outline-dark rounded-0 text-uppercase text-center">
+                                    Return to Profile
+                                </a>
+                            </p>
+                        {% else %}
+                            <p>
+                                Thank you for supporting me by purchasing my artwork. <br>
+                                It means so much to me.
+                            </p>
+                            <br>
+                            <p>
+                                If you would like to know more or keep up to date with upcoming collections, please 
+                                follow me on Instagram via the link below.
+                            </p>
+                            <br>
+                            <p class="text-center">
+                                <a href="https://www.instagram.com/madgeekmommy/?hl=en" target="_blank" class="btn btn-light btn-outline-dark rounded-0 text-uppercase text-center">
+                                    Follow me on instagram
+                                </a>
+                            </p>
+                        {% endif %}
                     </div>
                 </div>
             </div>
