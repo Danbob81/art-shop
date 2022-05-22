@@ -43,6 +43,7 @@
     <title>The Art Shop</title>
   </head>
   <body>
+    <div class="all-but-footer">
       <header class="container-fluid">
         <ul class="nav bg-white text-dark justify-content-end">
           <li class="list-inline-item dropdown">
@@ -61,7 +62,7 @@
                       {% if request.user.is_superuser %}
                           <a href="" class="dropdown-item">Product Management</a>
                       {% endif %}
-                      <a href="" class="dropdown-item">My Profile</a>
+                      <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                       <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                 {% else %}
                       <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
@@ -124,39 +125,39 @@
 
       {% block postloadjs %}
       {% endblock %}
-
-      <footer class="container-fluid">
-        <div class="row bg-white text-dark">
-          <div class="col-sm text-center">
-            <span class="">
-              <strong>Disclaimer:</strong> This site is for educational purposes only.
-              No orders can/will be fulfilled.
-            </span>
-          </div>
+    </div>
+    <footer class="container-fluid">
+      <div class="row bg-white text-dark">
+        <div class="col-sm text-center">
+          <span class="">
+            <strong>Disclaimer:</strong> This site is for educational purposes only.
+            No orders can/will be fulfilled.
+          </span>
         </div>
-        <div class="row bg-white text-dark">
-          <div class="col-sm text-center">
-            <a class="text-dark" href="{% url 'home' %}">
-              <img src="{% static 'images/logo2.png' %}" alt="Lindsey Higginson Art logo" width="225" height="60">
-            </a>
-          </div>
-          <div class="col-sm">
-            <!-- <p class="text-center">
-              Socials: 
-            </p> -->
-            <p class="text-center">
-              <a class="text-dark" href="https://www.facebook.com/danandlinz.higginson" target="_blank"><i class="fa-brands fa-facebook-square fa-lg"></i></a>
-              <a class="text-dark" href="https://www.instagram.com/madgeekmommy/?hl=en" target="_blank"><i class="fa-brands fa-instagram-square fa-lg"></i></a>
-            </p>
-          </div>
-          <div class="col-sm text-center">
-            <span class="">Site created by: 
-              <span id="copyright">&copy;</span>danbob81
-              <a class="text-dark" href="https://github.com/Danbob81" target="_blank"><i class="fab fa-github"></i></a>
-              <a class="text-dark" href="https://www.linkedin.com/in/daniel-higginson/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-            </span>
-          </div>
+      </div>
+      <div class="row bg-white text-dark">
+        <div class="col-sm text-center">
+          <a class="text-dark" href="{% url 'home' %}">
+            <img src="{% static 'images/logo2.png' %}" alt="Lindsey Higginson Art logo" width="225" height="60">
+          </a>
         </div>
-      </footer>
+        <div class="col-sm">
+          <!-- <p class="text-center">
+            Socials: 
+          </p> -->
+          <p class="text-center">
+            <a class="text-dark" href="https://www.facebook.com/danandlinz.higginson" target="_blank"><i class="fa-brands fa-facebook-square fa-lg"></i></a>
+            <a class="text-dark" href="https://www.instagram.com/madgeekmommy/?hl=en" target="_blank"><i class="fa-brands fa-instagram-square fa-lg"></i></a>
+          </p>
+        </div>
+        <div class="col-sm text-center">
+          <span class="">Site created by: 
+            <span id="copyright">&copy;</span>danbob81
+            <a class="text-dark" href="https://github.com/Danbob81" target="_blank"><i class="fab fa-github"></i></a>
+            <a class="text-dark" href="https://www.linkedin.com/in/daniel-higginson/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+          </span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

@@ -1,9 +1,9 @@
-html {
-    height: 100%;
+.all-but-footer{
+    min-height: calc(100vh - 88px);
 }
 
 body {
-    height: calc(100vh - 164px);
+    /* height: calc(100vh - 164px); */
     color: #000;
     font-family: 'Raleway', sans-serif;
 }
@@ -83,6 +83,22 @@ footer {
     position: relative;
 }
 
-/* .jumbotron {
-    background-image: url('../images/cherry_blossom.jpg') no-repeat center center;
-} */
+/* Allauth form */
+
+.allauth-form-inner-content p {
+    margin-top:  1.5rem;
+    color: #000;
+}
+
+.allauth-form-inner-content input {
+    border-color: #000;
+    border-radius: 0;
+}
+
+.allauth-form-inner-content label:not([for='id_remember']) {
+    display: none;
+}
+
+.allauth-form-inner-content input::placeholder {
+    color: #000;
+}
