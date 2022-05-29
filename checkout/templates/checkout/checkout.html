@@ -24,38 +24,46 @@
         <div class="row">
             <div class="col-12 col-lg-6 order-lg-last mb-5">
                 <div class="card border-0">
-                    <div class="card-body">
-                        <h5 class="card-title">Order Summary <br> <small class="text-muted">(Items: {{ product_count }})</small></h5>
-                        {% for item in basket_items %}
+                    <div class="card-header bg-white">
                         <div class="row">
                             <div class="col">
-                                {% if item.product.image %}
-                                <img class="w-100" src="{{ item.product.image.url }}" alt="{{ product.name }}">
-                                {% else %}
-                                <img class="w-100" src="{{ MEDIA_URL }}no_image.png" alt="{{ product.name }}">
-                                {% endif %}
+                                <h5 class="mb-0">
+                                    Order Summary  <small class="text-muted">(Items: {{ product_count }})</small>
+                                </h5>
                             </div>
-                            <div class="col-7">
-                                <p><strong>{{ item.product.name }}</strong></p>
-                                {% if item.product.has_sizes %}
-                                <p><small>Size: {{ item.size }}</small></p>
-                                {% endif %}
-                                <p><small>Qty: {{ item.quantity }}</small></p>
-                            </div>
-                            <div class="col text-end">
-                                <p><strong>£{{ item.product.price | calc_subtotal:item.quantity }}</strong></p>
-                                <div class="row">
-                                    <div class="col">
-                                        <a href="{% url 'view_basket' %}" class="text-muted text-decoration-none">
-                                            <small>Amend Item</small>
-                                        </a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        {% for item in basket_items %}
+                            <div class="row">
+                                <div class="col">
+                                    {% if item.product.image %}
+                                    <img class="w-100" src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                                    {% else %}
+                                    <img class="w-100" src="{{ MEDIA_URL }}no_image.png" alt="{{ product.name }}">
+                                    {% endif %}
+                                </div>
+                                <div class="col-7">
+                                    <p><strong>{{ item.product.name }}</strong></p>
+                                    {% if item.product.has_sizes %}
+                                    <p><small>Size: {{ item.size }}</small></p>
+                                    {% endif %}
+                                    <p><small>Qty: {{ item.quantity }}</small></p>
+                                </div>
+                                <div class="col text-end">
+                                    <p><strong>£{{ item.product.price | calc_subtotal:item.quantity }}</strong></p>
+                                    <div class="row">
+                                        <div class="col">
+                                            <a href="{% url 'view_basket' %}" class="text-muted text-decoration-none">
+                                                <small>Amend Item</small>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <br>
-                        <hr class="my-0">
-                        <br>
+                            <br>
+                            <hr class="my-0">
+                            <br>
                         {% endfor %}
                         <div class="row">
                             <div class="col-6 text-start">
@@ -76,7 +84,7 @@
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                         {% csrf_token %}
                         <div class="card border-0 checkout-card">
-                            <div class="card-header bg-white" id="headingOne">
+                            <div class="card-header bg-white">
                                 <div class="row">
                                     <div class="col">
                                         <h5 class="mb-0">
@@ -94,7 +102,7 @@
                             </div>
                         </div>
                         <div class="card border-0 checkout-card">
-                            <div class="card-header bg-white" id="headingTwo">
+                            <div class="card-header bg-white">
                                 <div class="row">
                                     <div class="col">
                                         <h5 class="mb-0">
@@ -126,7 +134,7 @@
                             </div>
                         </div>
                         <div class="card border-0 checkout-card">
-                            <div class="card-header bg-white" id="headingThree">
+                            <div class="card-header bg-white">
                                 <div class="row">
                                     <div class="col">
                                         <h5 class="mb-0">

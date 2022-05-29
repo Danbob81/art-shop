@@ -29,10 +29,9 @@
     color: #000;
 }
 
-#payment-form .form-control,
+#payment-form,
 #card-element {
     color: #000;
-    /* border: 1px solid #000; */
 }
 
 select,

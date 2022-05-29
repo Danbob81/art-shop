@@ -1,4 +1,4 @@
-""" Admin """
+""" Admin for order creation """
 from django.contrib import admin
 from .models import Order, OrderLineItem
 
