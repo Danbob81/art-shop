@@ -124,6 +124,9 @@
       {% endblock %}
 
       {% block postloadjs %}
+        <script type="text/javascript">
+          $("#copyright").text(new Date().getFullYear());
+        </script>
       {% endblock %}
     </div>
     <footer class="container-fluid">
@@ -141,22 +144,21 @@
             <img src="{% static 'images/logo2.png' %}" alt="Lindsey Higginson Art logo" width="225" height="60">
           </a>
         </div>
-        <div class="col-sm">
-          <!-- <p class="text-center">
-            Socials: 
-          </p> -->
-          <p class="text-center">
-            <a class="text-dark" href="https://www.facebook.com/danandlinz.higginson" target="_blank"><i class="fa-brands fa-facebook-square fa-lg"></i></a>
-            <a class="text-dark" href="https://www.instagram.com/madgeekmommy/?hl=en" target="_blank"><i class="fa-brands fa-instagram-square fa-lg"></i></a>
-          </p>
-        </div>
-        <div class="col-sm text-center">
-          <span class="">Site created by: 
-            <span id="copyright">&copy;</span>danbob81
-            <a class="text-dark" href="https://github.com/Danbob81" target="_blank"><i class="fab fa-github"></i></a>
-            <a class="text-dark" href="https://www.linkedin.com/in/daniel-higginson/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-          </span>
-        </div>
+        <!-- <div class="row"> -->
+          <div class="col-sm">
+            <p class="text-center">
+              <a class="text-dark" href="https://www.facebook.com/danandlinz.higginson" target="_blank"><i class="fa-brands fa-facebook-square fa-lg"></i></a>
+              <a class="text-dark" href="https://www.instagram.com/madgeekmommy/?hl=en" target="_blank"><i class="fa-brands fa-instagram-square fa-lg"></i></a>
+            </p>
+          </div>
+          <div class="col-sm text-center">
+            <span class="">Site created by: 
+              <span id="copyright">&copy;</span>danbob81
+              <a class="text-dark" href="https://github.com/Danbob81" target="_blank"><i class="fab fa-github"></i></a>
+              <a class="text-dark" href="https://www.linkedin.com/in/daniel-higginson/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            </span>
+          </div>
+        <!-- </div> -->
       </div>
     </footer>
   </body>
