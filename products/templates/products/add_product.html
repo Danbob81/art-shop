@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container mb-2">
+        <div class="row justify-content-center">
+            <div class="col">
+                <p class="text-center">
+                    <i class="fa-solid fa-paintbrush"></i>
+                </p>
+                <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h2>Product Management</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <form action="{% url 'add_product' %}" method="POST" class="form mb-2" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="card border-0">
+                            <div class="card-header bg-white">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="mb-0">
+                                            Add Product
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                {{ form | crispy }}
+                                <div class="row justify-content-center">
+                                    <div class="col justify-content-center">
+                                        <br>
+                                        <a class="btn btn-light btn-lg btn-outline-dark rounded-0 text-uppercase text-center" href="{% url 'add_product' %}">Cancel</a>
+                                    </div>
+                                    <div class="col justify-content-center">
+                                        <br>
+                                        <button type="submit" class="btn btn-light btn-lg btn-outline-dark rounded-0 text-uppercase text-center">
+                                            Add Product
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </form>
+            </div>
+        </div>
+        <br>
+        <p class="text-center">
+            <i class="fa-solid fa-paintbrush"></i>
+        </p>
+    </div>
+{% endblock %}

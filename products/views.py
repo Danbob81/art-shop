@@ -1,6 +1,7 @@
 """ A view to return the products template """
 from django.shortcuts import render, get_object_or_404
 from .models import Product, Category
+from .forms import ProductForm
 
 
 def all_products(request):
@@ -31,3 +32,14 @@ def product_details(request, product_id):
         'product': product,
     }
     return render(request, 'products/product_details.html', context)
+
+
+def add_product(request):
+    """ For adding products to the shop """
+    form = ProductForm()
+    template = 'products/add_product.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
