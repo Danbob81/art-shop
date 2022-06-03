@@ -21,10 +21,11 @@
             </div>
             <div class="col-12 col-md-6 col-lg-4">
                 <p class="text-start"><strong>{{ product.name }}</strong></p>
-                <p class="text-start">From the {{ product.category.friendly_name }}</p>
+                <p class="text-start">From the {{ product.sub_category.friendly_name }}</p>
                 <br>
                 <p class="text-start">{{ product.description }}</p>
                 <p class="text-start">£{{ product.price }}</p>
+
 
                 <form class="form" action="{% url 'add_to_basket' product.id %}" method="POST">
                     {% csrf_token %}
@@ -51,6 +52,12 @@
                             </div>
                         </div>
                     </div>
+                    {% if request.user.is_superuser %}
+                        <small class="ml-3">
+                            <a href="{% url 'edit_product' product.id %}">Edit</a> |
+                            <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                        </small>
+                    {% endif %}
                     <br>
                     {% with product.has_sizes as s %}
                         {% if s %}
