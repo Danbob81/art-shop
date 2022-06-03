@@ -1,12 +1,14 @@
 """ Views for profile app """
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from checkout.models import Order
 from .models import UserProfile
 from .forms import UserProfileForm
 
 
+@login_required
 def profile(request):
     """ Display user profile """
     profile = get_object_or_404(UserProfile, user=request.user)
@@ -35,6 +37,7 @@ def profile(request):
 
 
 def order_history(request, order_number):
+    """ Show users order history in their profile """
     order = get_object_or_404(Order, order_number=order_number)
 
     messages.info(request, (
