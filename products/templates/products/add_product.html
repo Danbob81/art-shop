@@ -18,6 +18,49 @@
         </div>
         <div class="row">
             <div class="col-12 col-lg-6">
+                <div class="card border-0">
+                    <div class="card-header bg-white">
+                        <div class="row">
+                            <div class="col">
+                                <h5 class="mb-0">
+                                    Products
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="product-list table-responsive">
+                            <table class="table table sm table-borderless">
+                                <thead>
+                                    <tr>
+                                        <th>Category</th>
+                                        <th>Sub-Category</th>
+                                        <th>SKU</th>
+                                        <th>Name</th>
+                                        <th>Price</th>
+                                        <th>View</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for product in products %}
+                                    <tr>
+                                        <td>{{ product.category.friendly_name }}</td>
+                                        <td>{{ product.sub_category.friendly_name }}</td>
+                                        <td>{{ product.sku }}</td>
+                                        <td>{{ product.name }}</td>
+                                        <td>£{{ product.price }}</td>
+                                        <td><small class="ml-3">
+                                            <a href="{% url 'product_details' product.id %}">View item</a>
+                                        </small></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
                 <form action="{% url 'add_product' %}" method="POST" class="form mb-2" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="card border-0">
@@ -53,48 +96,6 @@
                             </div>
                         </div>
                 </form>
-            </div>
-            <div class="col-12 col-lg-6">
-                <div class="card border-0">
-                    <div class="card-header bg-white">
-                        <div class="row">
-                            <div class="col">
-                                <h5 class="mb-0">
-                                    Products
-                                </h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="product-list table-responsive">
-                            <table class="table table sm table-borderless">
-                                <thead>
-                                    <tr>
-                                        <th>Category</th>
-                                        <th>Sub-Category</th>
-                                        <th>SKU</th>
-                                        <th>Name</th>
-                                        <th>Price</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {% for product in products %}
-                                    <tr>
-                                        <td>{{ product.category.friendly_name }}</td>
-                                        <td>{{ product.sub_category.friendly_name }}</td>
-                                        <td>{{ product.sku }}</td>
-                                        <td>{{ product.name }}</td>
-                                        <td>£{{ product.price }}</td>
-                                        <td><small class="ml-3">
-                                            <a href="{% url 'product_details' product.id %}">View item</a>
-                                        </small></td>
-                                    </tr>
-                                    {% endfor %}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <br>

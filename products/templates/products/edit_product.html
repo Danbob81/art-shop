@@ -18,43 +18,6 @@
         </div>
         <div class="row">
             <div class="col-12 col-lg-6">
-                <form action="{% url 'edit_product' product.id %}" method="POST" class="form mb-2" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        <div class="card border-0">
-                            <div class="card-header bg-white">
-                                <div class="row">
-                                    <div class="col">
-                                        <h5 class="mb-0">
-                                            Edit Product
-                                        </h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                {% for field in form %}
-                                    {% if field.name != 'image' %}
-                                        {{ field | as_crispy_field }}
-                                    {% else %}
-                                        {{ field }}
-                                    {% endif %}
-                                {% endfor %}
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <br>
-                                        <a class="btn btn-dark btn-lg btn-outline-light rounded-0 text-uppercase text-center" href="{% url 'product_details' product.id %}">Cancel</a>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <br>
-                                        <button type="submit" class="btn btn-light btn-lg btn-outline-dark rounded-0 text-uppercase text-center">
-                                            Update Product
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                </form>
-            </div>
-            <div class="col-12 col-lg-6">
                 <div class="card border-0">
                     <div class="card-header bg-white">
                         <div class="row">
@@ -84,12 +47,70 @@
                                 <p class="text-start"><strong>Qty:</strong> {{ product.quantity }}</p>
                                 <p class="text-start"><strong>Price:</strong> £{{ product.price }}</p>
                             </div>
-                            <div class="col">
-                                <a class="btn btn-dark btn-outline-light rounded-0 text-uppercase text-center" data-toggle="modal" data-target="#exampleModal">Delete Product</a>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <br>
+                                    <a class="btn btn-dark btn-lg btn-outline-light rounded-0 text-uppercase text-center" href="{% url 'add_product' %}">Cancel</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <br>
+                                    <a class="btn btn-light btn-lg btn-outline-dark rounded-0 text-uppercase text-center" href="#collapseForm" data-toggle="collapse" 
+                                        role="button" aria-expanded="false" aria-controls="collapseForm">Edit/Delete Product
+                                    </a>
+                                </div>
                             </div>
+                            <!-- <div class="col">
+                                <a class="btn btn-dark btn-outline-light rounded-0 text-uppercase text-center" data-toggle="modal" data-target="#exampleModal">Delete Product</a>
+                                <a class="btn btn-light btn-outline-dark rounded-0 text-uppercase text-center" href="#collapseForm" data-toggle="collapse" 
+                                    role="button" aria-expanded="false" aria-controls="collapseForm">
+                                    <h5 class="mb-0">
+                                        Edit Product
+                                    </h5>
+                                </a>
+                            </div> -->
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <form action="{% url 'edit_product' product.id %}" method="POST" class="form mb-2" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="card border-0">
+                        <div class="collapse" id="collapseForm">
+                            <div class="card-header bg-white">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="mb-0">
+                                            Edit Product
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                {% for field in form %}
+                                {% if field.name != 'image' %}
+                                {{ field | as_crispy_field }}
+                                {% else %}
+                                {{ field }}
+                                {% endif %}
+                                {% endfor %}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <br>
+                                        <a class="btn btn-dark btn-lg btn-outline-light rounded-0 text-uppercase text-center" data-toggle="modal" data-target="#exampleModal">Delete Product</a>
+                                        <!-- <a class="btn btn-dark btn-lg btn-outline-light rounded-0 text-uppercase text-center" href="{% url 'product_details' product.id %}">Cancel</a> -->
+                                    </div>
+                                    <div class="col-md-6">
+                                        <br>
+                                        <button type="submit" class="btn btn-light btn-lg btn-outline-dark rounded-0 text-uppercase text-center">
+                                            Update Product
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
