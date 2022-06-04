@@ -42,12 +42,13 @@ def add_product(request):
         messages.error(request, 'Only shop staff have access to this.')
         return redirect(reverse('home'))
 
+    products = Product.objects.all()
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             product = form.save()
             messages.success(request, 'Product added!')
-            return redirect(reverse('product_details', args=[product.id]))
+            return redirect(reverse('edit_product', args=[product.id]))
         else:
             messages.error(request, 'Failed to add product.\
                                      Please check the form and try again.')
@@ -56,6 +57,7 @@ def add_product(request):
 
     template = 'products/add_product.html'
     context = {
+        'products': products,
         'form': form,
     }
 
@@ -102,4 +104,4 @@ def delete_product(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Product deleted.')
-    return redirect(reverse('shop'))
+    return redirect(reverse('add_product'))

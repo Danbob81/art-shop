@@ -130,3 +130,8 @@ footer {
     border-color: #dc3545;
     border-radius: 0;
 }
+
+.product-list {
+    max-height: 800px;
+    overflow-y: auto;
+}

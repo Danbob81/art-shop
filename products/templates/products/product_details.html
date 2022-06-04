@@ -52,11 +52,7 @@
                             </div>
                         </div>
                     </div>
-                    {% if request.user.is_superuser %}
-                        <small class="ml-3">
-                            <a href="{% url 'edit_product' product.id %}">Edit</a>
-                        </small>
-                    {% endif %}
+                    
                     <br>
                     {% with product.has_sizes as s %}
                         {% if s %}
@@ -95,6 +91,12 @@
                             <!-- {% endif %} -->
                         {% endif %}
                     {% endwith %}
+                    {% if request.user.is_superuser %}
+                        <small class="ml-3">
+                            <a href="{% url 'edit_product' product.id %}">Edit</a>
+                        </small>
+                        <br>
+                    {% endif %}
                     <!-- <br> -->
                     <br>
                     <input type="submit" class="btn btn-light btn-outline-dark rounded-0 text-uppercase text-center" value="Add to basket">

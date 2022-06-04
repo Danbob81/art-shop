@@ -66,7 +66,33 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        
+                        <div class="product-list table-responsive">
+                            <table class="table table sm table-borderless">
+                                <thead>
+                                    <tr>
+                                        <th>Category</th>
+                                        <th>Sub-Category</th>
+                                        <th>SKU</th>
+                                        <th>Name</th>
+                                        <th>Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for product in products %}
+                                    <tr>
+                                        <td>{{ product.category.friendly_name }}</td>
+                                        <td>{{ product.sub_category.friendly_name }}</td>
+                                        <td>{{ product.sku }}</td>
+                                        <td>{{ product.name }}</td>
+                                        <td>£{{ product.price }}</td>
+                                        <td><small class="ml-3">
+                                            <a href="{% url 'product_details' product.id %}">View item</a>
+                                        </small></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
