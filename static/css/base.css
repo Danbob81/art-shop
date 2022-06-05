@@ -53,6 +53,17 @@ body {
     width: 100%;
 }
 
+.badge-products {
+    position: absolute;
+    top: 20px;
+    left: 3.2rem;
+    border-radius: 0;
+}
+
+.badge-details {
+    border-radius: 0;
+}
+
 .basket-img {
     padding: 0 1% 1% 1%;
 }

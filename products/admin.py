@@ -10,6 +10,7 @@ class ProductAdmin(admin.ModelAdmin):
         'name',
         'category',
         'price',
+        'stock_qty',
         'image',
     )
 

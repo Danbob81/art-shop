@@ -6,7 +6,7 @@ from products.models import Product
 
 
 def basket_contents(request):
-    """basket contents"""
+    """ Return basket contents"""
 
     basket_items = []
     total = 0

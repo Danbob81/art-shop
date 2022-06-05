@@ -71,15 +71,28 @@ def checkout(request):
                             product=product,
                             quantity=item_data,
                         )
+
+                        # reduce product stock quantity
+                        product = Product.objects.get(id=item_id)
+                        product.stock_qty = product.stock_qty -\
+                            order_line_item.quantity
+                        product.save()
                         order_line_item.save()
                     else:
-                        for size, quantity in item_data['items_by_size'].items():
+                        for size, quantity in item_data['items_by_size']\
+                                                         .items():
                             order_line_item = OrderLineItem(
                                 order=order,
                                 product=product,
                                 quantity=quantity,
                                 product_size=size,
                             )
+
+                            # reduce product stock quantity
+                            product = Product.objects.get(id=item_id)
+                            product.stock_qty = product.stock_qty -\
+                                order_line_item.quantity
+                            product.save()
                             order_line_item.save()
                 except Product.DoesNotExist:
                     messages.error(request, (

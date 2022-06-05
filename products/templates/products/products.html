@@ -31,6 +31,10 @@
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                     <div class="card h-100 border-0">
                         <a href="{% url 'product_details' product.id %}" class="text-decoration-none text-dark">
+                            {% if product.stock_qty %}
+                            {% else %}
+                                <h4><span class="badge badge-products bg-danger">Sold</span></h4>
+                            {% endif %}
                             {% if product.image %}
                                 <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img card-img-top">
                             {% else %}
