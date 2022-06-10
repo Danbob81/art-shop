@@ -83,7 +83,7 @@ def remove_from_basket(request, item_id):
         size = None
         if 'product_size' in request.POST:
             size = request.POST['product_size']
-        basket = request.session.get('basket', {})
+            basket = request.session.get('basket', {})
 
         if size:
             del basket[item_id]['items_by_size'][size]

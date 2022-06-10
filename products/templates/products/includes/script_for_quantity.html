@@ -1,4 +1,5 @@
 <script type="text/javascript">
+
     // Hide +/- buttons outside 1-99 range
     function handleEnableDisable(itemId) {
         let currentValue = parseInt($(`#id_qty_${itemId}`).val());
@@ -9,7 +10,7 @@
     }
 
     // Ensure proper enabling/disabling of all inputs on page load
-    var allQtyInputs = $('.qty_input');
+    let allQtyInputs = $('.qty_input');
     for(let i = 0; i < allQtyInputs.length; i++){
         let itemId = $(allQtyInputs[i]).data('item_id');
         handleEnableDisable(itemId);

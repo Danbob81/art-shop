@@ -7,7 +7,7 @@
         <div class="row justify-content-center">
             <div class="col">
                 <p class="text-center">
-                    <i class="fa-solid fa-paintbrush"></i>
+                    <hr hidden>
                 </p>
                 <br>
             </div>
@@ -39,32 +39,42 @@
                             {% csrf_token %}
                             <div class="form-group">
                                 <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <button class="decrement-qty btn btn-lg rounded-0"
-                                            data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
-                                            <span>
-                                                <i class="fas fa-minus"></i>
-                                            </span>
-                                        </button>
-                                    </div>
-                                    <input class="form-control qty_input border-0 text-center w-25" type="number" 
-                                        name="quantity" value="{{ item.quantity }}" min="1" max="99" 
-                                        data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
-                                    <div class="input-group-append">
-                                        <button class="increment-qty btn btn-lg rounded-0"
-                                            data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
-                                            <span>
-                                                <i class="fas fa-plus"></i>
-                                            </span>
-                                        </button>
-                                    </div>
+                                    {% if item.product.stock_qty == 1 %}
+                                        Qty: 1
+                                        <input class="form-control qty_input border-0 text-center w-25" type="hidden"
+                                                name="quantity" value="1" min="1" max="99" 
+                                                data-item_id="{{ product.product.id }}" id="id_qty_{{ product.product.id }}">
+                                    {% else %}
+                                        <div class="input-group-prepend">
+                                            <button class="decrement-qty btn btn-lg rounded-0"
+                                                data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                                <span>
+                                                    <i class="fas fa-minus"></i>
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <input class="form-control qty_input border-0 text-center w-25" type="number" 
+                                            name="quantity" value="{{ item.quantity }}" min="1" max="99" 
+                                            data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                        <div class="input-group-append">
+                                            <button class="increment-qty btn btn-lg rounded-0"
+                                                data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                                <span>
+                                                    <i class="fas fa-plus"></i>
+                                                </span>
+                                            </button>
+                                        </div>
+                                    {% endif %}
                                     {% if item.product.has_sizes %}
                                         <input type="hidden" name="product_size" value="{{ item.size }}">
                                     {% endif %}
                                 </div>
                             </div>
                         </form>
-                        <a class="update-item text-muted text-decoration-none text-center"><small>Update Quantity</small></a>
+                        {% if item.product.stock_qty == 1 %}
+                        {% else %}
+                            <a class="update-item text-muted text-decoration-none text-center"><small>Update Quantity</small></a>
+                        {% endif %}
                     </div>
                     <div class="col-2 text-end">£{{ item.product.price | calc_subtotal:item.quantity }}</div>
                     <div class="col text-end">
@@ -102,6 +112,7 @@
                 </div>
             {% endif %}
         </div>
+        {% if basket_items %}
         <div class="row">
             <div class="col-sm-12 col-lg-8"></div>
             <div class="col-sm-12 col-lg-4">
@@ -116,12 +127,23 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col"></div>
+        </div>
+        <div class="row">
+            <div class="col text-end">
+                <br>
+                <a href="{% url 'shop' %}" class="btn btn-dark btn-outline-light rounded-0 text-uppercase text-center">Continue Shopping</a>
+                <br>
+                <hr>
+            </div>
+        </div>
+        {% endif %}
+        <br>
+        <p class="text-center">
+            <hr hidden>
+        </p>
     </div>
-
-    <br>
-    <p class="text-center">
-        <i class="fa-solid fa-paintbrush"></i>
-    </p>
 {% endblock %}
 
 {% block postloadjs %}
