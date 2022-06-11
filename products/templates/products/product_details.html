@@ -3,10 +3,12 @@
 
 {% block content %}
     <div class="container mb-2">
-        <div class="row justify-content-center">
+        <div class="row">
             <div class="col">
+                <a href="{% url 'shop' %}" class="btn btn-light border-0 rounded-0 text-center"><i class="fa-solid fa-paintbrush"></i> Back to Shop</a>
+                <a href="javascript:history.go(-1)" class="btn btn-light border-0 rounded-0 text-center"><i class="fa-solid fa-palette"></i> Back to Products</a>
                 <p class="text-center">
-                    <hr hidden>
+                    <hr>
                 </p>
                 <br>
             </div>
@@ -31,7 +33,7 @@
                 <p class="text-start">£{{ product.price }}</p>
 
                 <form class="form" action="{% url 'add_to_basket' product.id %}" method="POST">
-                    {% if product.stock_qty == 1 %}
+                    {% if product.stock_qty != 0 %}
                     <div class="form-group w-50">
                         {% csrf_token %}
                             <div class="input-group">
@@ -70,17 +72,16 @@
                                 </p>
                             {% endif %}
                         {% endwith %}
-                        <br>
-                            <button type="submit" class="btn btn-light btn-outline-dark rounded-0 text-uppercase text-center">Add to basket</button>
                     {% endif %}
-                    <p>
-                        {% if product.stock_qty <= 0 %}
-                            Out of stock.
-                        {% elif product.stock_qty <= 2 %}
-                            Only {{ product.stock_qty }} remaining.
-                                <br>
-                        {% endif %}
-                    </p>
+                    {% if product.stock_qty == 0 %}
+                        <p>Out of stock.</p>
+                    {% elif product.stock_qty == 1 %}
+                        <p>Only 1 item in stock.</p>
+                        <br>
+                    {% endif %}
+                    {% if product.stock_qty != 0 %}
+                        <button type="submit" class="btn btn-light btn-outline-dark rounded-0 text-uppercase text-center">Add to basket</button>
+                    {% endif %}
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </form>
                 <br>
@@ -91,6 +92,7 @@
                 {% endif %}
             </div>
         </div>
+        <hr>
         <br>
         <p class="text-center">
             <hr hidden>

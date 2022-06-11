@@ -17,6 +17,15 @@ body {
     font-size: 1.75rem;
 }
 
+.dropdown-menu {
+    margin-right:-1000px;
+    width: 200px;
+}
+
+.dropdown-menu > li {
+    display: inline-block;
+}
+
 .dropdown:hover .dropdown-menu {
     display: block;
 }
