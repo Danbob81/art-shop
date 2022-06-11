@@ -22,8 +22,7 @@
                 {% endif %}
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                {% if product.stock_qty %}
-                {% else %}
+                {% if product.stock_qty == 0 %}
                     <h4><span class="badge badge-details bg-danger">Sold</span></h4>
                 {% endif %}
                 <p class="text-start"><strong>{{ product.name }}</strong></p>
@@ -73,11 +72,13 @@
                             {% endif %}
                         {% endwith %}
                     {% endif %}
-                    {% if product.stock_qty == 0 %}
-                        <p>Out of stock.</p>
-                    {% elif product.stock_qty == 1 %}
-                        <p>Only 1 item in stock.</p>
-                        <br>
+                    {% if not product.has_sizes %}
+                        {% if product.stock_qty == 0 %}
+                            <p>Out of stock.</p>
+                        {% elif product.stock_qty == 1 %}
+                            <p>Only 1 item in stock.</p>
+                            <br>
+                        {% endif %}
                     {% endif %}
                     {% if product.stock_qty != 0 %}
                         <button type="submit" class="btn btn-light btn-outline-dark rounded-0 text-uppercase text-center">Add to basket</button>

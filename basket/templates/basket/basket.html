@@ -40,12 +40,12 @@
                             {% csrf_token %}
                             <div class="form-group">
                                 <div class="input-group">
-                                    {% if item.product.stock_qty == 1 %}
-                                        Qty: 1
+                                    
+                                        <!-- Qty: 1
                                         <input class="form-control qty_input border-0 text-center w-25" type="hidden"
                                                 name="quantity" value="1" min="1" max="99" 
-                                                data-item_id="{{ product.product.id }}" id="id_qty_{{ product.product.id }}">
-                                    {% else %}
+                                                data-item_id="{{ product.product.id }}" id="id_qty_{{ product.product.id }}"> -->
+                                    
                                         <div class="input-group-prepend">
                                             <button class="decrement-qty btn btn-lg rounded-0"
                                                 data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
@@ -65,16 +65,17 @@
                                                 </span>
                                             </button>
                                         </div>
-                                    {% endif %}
+                                    
                                     {% if item.product.has_sizes %}
                                         <input type="hidden" name="product_size" value="{{ item.size }}">
                                     {% endif %}
                                 </div>
                             </div>
                         </form>
-                        {% if item.product.stock_qty == 1 %}
-                        {% else %}
+                        {% if item.product.stock_qty > 1 %}
                             <a class="update-item text-muted text-decoration-none text-center"><small>Update Quantity</small></a>
+                        {% else %}
+                            <small class="text-muted">Only 1 item left in stock. Quantity can not be updated.</small>
                         {% endif %}
                     </div>
                     <div class="col-2 text-end">£{{ item.product.price | calc_subtotal:item.quantity }}</div>
