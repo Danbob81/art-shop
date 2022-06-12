@@ -1,0 +1,50 @@
+{% load static %}
+
+<!-- <div class="col my-auto py-1 py-lg-0 text-center text-lg-center">
+  <a class="logo1 d-block d-md d-lg-none" href="{% url 'home' %}">
+    <img src="{% static 'images/logo1.png' %}" alt="Lindsey Higginson Art logo" width="207" height="100">
+  </a>
+</div> -->
+<ul>
+  <div class="col my-auto py-1 py-lg-0 text-center text-lg-center">
+    <li class="list-inline-item dropdown">
+      <a class="text-dark nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <div class="text-center">
+            {% if request.user.is_authenticated %}
+            <i class="fa-solid fa-palette fa-lg"></i>
+            <p class="my-0">My Account</p>
+            {% else %}
+            <div><i class="fa-solid fa-arrow-right-to-bracket fa-lg"></i></div>
+            {% endif %}
+          </div>
+      </a>
+      <div class="dropdown-menu border-0" aria-labelledby="user-options">
+          {% if request.user.is_authenticated %}
+                {% if request.user.is_superuser %}
+                    <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+                {% endif %}
+                <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+          {% else %}
+                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                <a href="{% url 'account_login' %}" class="dropdown-item">Sign In</a>
+          {% endif %}
+      </div>
+    </li>
+    <li class="list-inline-item">
+      <a href="{% url 'view_basket' %}" class="{% if grand_total %}text-info font-weight-bold{% else %}text-dark{% endif %} nav-link d-block d-lg-none">
+          <div class="text-center text-dark">
+              <div><i class="fa-solid fa-basket-shopping fa-lg"></i></div>
+              <p class="my-0">
+                  {% if grand_total %}
+                    £{{ grand_total|floatformat:2 }}
+                  {% elif request.user.is_authenticated %}
+                    £0.00
+                  {% else %}
+                  {% endif %}
+              </p>
+          </div>
+      </a>
+    </li>
+  </div>
+</ul>

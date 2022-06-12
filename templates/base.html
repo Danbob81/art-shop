@@ -45,6 +45,69 @@
   <body>
     <div class="all-but-footer">
       <header class="container-fluid">
+        <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
+          <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left"></div>
+          <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-center">
+            <a class="logo1" href="{% url 'home' %}">
+              <img src="{% static 'images/logo1.png' %}" alt="Lindsey Higginson Art logo" width="373" height="180">
+            </a>
+          </div>
+          <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+            <ul class="list-inline list-unstyled text-center text-lg-end my-0">
+              <li class="list-inline-item dropdown">
+                <a class="text-dark nav-link " href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="text-center">
+                      {% if request.user.is_authenticated %}
+                      <i class="fa-solid fa-palette fa-lg"></i>
+                      <p class="my-0">My Account</p>
+                      {% else %}
+                      <div><i class="fa-solid fa-arrow-right-to-bracket fa-lg"></i></div>
+                      {% endif %}
+                    </div>
+                </a>
+                <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                    {% if request.user.is_authenticated %}
+                          {% if request.user.is_superuser %}
+                              <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+                          {% endif %}
+                          <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                          <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                    {% else %}
+                          <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                          <a href="{% url 'account_login' %}" class="dropdown-item">Sign In</a>
+                    {% endif %}
+                </div>
+              </li>
+              <li class="list-inline-item">
+                <a href="{% url 'view_basket' %}" class="{% if grand_total %}text-info font-weight-bold{% else %}text-dark{% endif %} nav-link">
+                    <div class="text-center text-dark">
+                        <div><i class="fa-solid fa-basket-shopping fa-lg"></i></div>
+                        <p class="my-0">
+                            {% if grand_total %}
+                              £{{ grand_total|floatformat:2 }}
+                            {% elif request.user.is_authenticated %}
+                              £0.00
+                            {% else %}
+                            {% endif %}
+                        </p>
+                    </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row bg-white">
+          <nav class="navbar navbar-expand-lg navbar-light w-100">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            {% include 'includes/mobile-top-header.html' %}
+            {% include 'includes/main-nav.html' %}
+          </nav>
+        </div>
+      </header>
+
+      <!-- <header class="container-fluid">
         <div class="row">
           <div class="col-lg-4"></div>
           <div class="col-lg-4">
@@ -98,52 +161,6 @@
             </ul>
           </div>
         </div>
-        <!-- <ul class="nav bg-white text-dark justify-content-end">
-          <li class="list-inline-item dropdown">
-            <a class="text-dark nav-link " href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <div class="text-center">
-                  {% if request.user.is_authenticated %}
-                  <i class="fa-solid fa-palette fa-lg"></i>
-                  <p class="my-0">My Account</p>
-                  {% else %}
-                  <div><i class="fa-solid fa-arrow-right-to-bracket fa-lg"></i></div>
-                  {% endif %}
-                </div>
-            </a>
-            <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                {% if request.user.is_authenticated %}
-                      {% if request.user.is_superuser %}
-                          <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
-                      {% endif %}
-                      <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-                      <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                {% else %}
-                      <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                      <a href="{% url 'account_login' %}" class="dropdown-item">Sign In</a>
-                {% endif %}
-            </div>
-          </li>
-          <li class="list-inline-item">
-            <a href="{% url 'view_basket' %}" class="{% if grand_total %}text-info font-weight-bold{% else %}text-dark{% endif %} nav-link">
-                <div class="text-center text-dark">
-                    <div><i class="fa-solid fa-basket-shopping fa-lg"></i></div>
-                    <p class="my-0">
-                        {% if grand_total %}
-                          £{{ grand_total|floatformat:2 }}
-                        {% elif request.user.is_authenticated %}
-                          £0.00
-                        {% else %}
-                        {% endif %}
-                    </p>
-                </div>
-            </a>
-          </li>
-        </ul> -->
-        <!-- <ul class="nav justify-content-center bg-white text-dark">
-          <a class="logo1" href="{% url 'home' %}">
-            <img src="{% static 'images/logo1.png' %}" alt="Lindsey Higginson Art logo" width="373" height="180">
-          </a>
-        </ul> -->
         <ul class="nav justify-content-center bg-white text-dark">
           <li class="nav-item">
             <a class="nav-link text-dark active menu-text" aria-current="page" href="{% url 'home' %}">Home</a>
@@ -164,7 +181,7 @@
             </ul>
           </li>
         </ul>
-      </header>
+      </header> -->
 
       {% if messages %}
         <div class="message-container"></div>
