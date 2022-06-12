@@ -155,3 +155,20 @@ footer {
     max-height: 800px;
     overflow-y: auto;
 }
+
+/* Toast messages */
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 999999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
