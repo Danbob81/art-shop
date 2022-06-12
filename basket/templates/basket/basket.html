@@ -80,24 +80,9 @@
                     </div>
                     <div class="col-2 text-end">£{{ item.product.price | calc_subtotal:item.quantity }}</div>
                     <div class="col text-end">
-                        <a class="remove-item text-dark" data-toggle="modal" data-target="#exampleModal">
+                        <a class="btn btn-sm btn-dark btn-outline-light rounded-0 remove-item" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}">
                             <i class="fa-solid fa-xmark"></i>
                         </a>
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-body text-center">
-                                        <p>Remove item from your basket?</p>
-                                    </div>
-                                    <div class="modal-footer text-center">
-                                        <a class="btn btn-light btn-outline-dark rounded-0 text-uppercase text-center remove-item" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}">
-                                            Yes
-                                        </a>
-                                        <button type="button" class="btn btn-dark btn-outline-light rounded-0 text-uppercase text-center" data-dismiss="modal">No</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <div class="row">
                         <div class="col"><hr class="text-muted text-center"></div>

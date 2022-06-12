@@ -29,10 +29,15 @@ def add_to_basket(request, item_id):
         if item_id in list(basket.keys()):
             if size in basket[item_id]['items_by_size'].keys():
                 basket[item_id]['items_by_size'][size] += quantity
+                messages.success(request, f'Updated size {size} {product.name} quantity to\
+                                     {basket[item_id]["items_by_size"][size]}')
             else:
                 basket[item_id]['items_by_size'][size] = quantity
+                messages.success(request, f'{product.name} added to the\
+                                         basket')
         else:
             basket[item_id] = {'items_by_size': {size: quantity}}
+            messages.success(request, f'{product.name} added to the basket')
     else:
         if item_id in list(basket.keys()):
             already_in_basket = True
@@ -40,17 +45,15 @@ def add_to_basket(request, item_id):
             quantity_total = int(stock_qty) + int(quantity)
 
             if quantity_total > stock_qty:
-                messages.error(request, f'The total number of {product.name}\
-                                         in your basket was more than we have\
-                                         in stock. The basket has been\
-                                         adjusted and contains the maximum\
-                                         number available')
+                messages.error(request, f"Oops! It looks like you're trying\
+                                         to add more of item: '{product.name}'\
+                                         than we have available.")
                 return redirect(reverse('product_details', args=[product.id]))
             else:
                 if not already_in_basket:
                     basket[item_id] += quantity
                     messages.success(request, f'Updated {product.name} quantity to\
-                                        {basket[item_id]}')
+                                     {basket[item_id]["items_by_size"][size]}')
         else:
             basket[item_id] = quantity
             messages.success(request, f'{product.name} added to the basket')
@@ -74,10 +77,14 @@ def update_basket(request, item_id):
     if size:
         if quantity > 0:
             basket[item_id]['items_by_size'][size] = quantity
+            messages.success(request, f'Updated size {size} {product.name} quantity to\
+                                     {basket[item_id]["items_by_size"][size]}')
         else:
             del basket[item_id]['items_by_size'][size]
             if not basket[item_id]['items_by_size']:
                 basket.pop(item_id)
+            messages.success(request, f'{product.name} size: {size} removed from\
+                             the basket')
     else:
         if quantity > 0:
             basket[item_id] = quantity
@@ -100,12 +107,14 @@ def remove_from_basket(request, item_id):
         size = None
         if 'product_size' in request.POST:
             size = request.POST['product_size']
-            basket = request.session.get('basket', {})
+        basket = request.session.get('basket', {})
 
         if size:
             del basket[item_id]['items_by_size'][size]
             if not basket[item_id]['items_by_size']:
                 basket.pop(item_id)
+            messages.success(request, f'{product.name} size: {size} removed from\
+                             the basket')
         else:
             basket.pop(item_id)
             messages.success(request, f'{product.name} removed from\

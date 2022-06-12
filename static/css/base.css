@@ -172,3 +172,9 @@ footer {
     height: 2px;
 }
 
+.basket-notification-wrapper {
+    height: 150px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
