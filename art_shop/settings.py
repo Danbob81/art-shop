@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -125,6 +126,7 @@ WSGI_APPLICATION = 'art_shop.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# Django sqlite3 DB
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -132,6 +134,10 @@ DATABASES = {
     }
 }
 
+# Heroku Postgres DB
+# DATABASES = {
+#     'default': dj_database_url.parse('postgres://mzyjsjwizlekgg:271a19a76b84e30899741b50159de91368ff822ff786accc55f115fe712cb227@ec2-99-81-137-11.eu-west-1.compute.amazonaws.com:5432/dabn3aeufvne6r')
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
