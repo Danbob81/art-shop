@@ -55,15 +55,17 @@
                                             </button>
                                         </div>
                                         <input class="form-control qty_input border-0 text-center w-25" type="number" 
-                                            name="quantity" value="{{ item.quantity }}" min="1" max="99" 
+                                            name="quantity" value="{{ item.quantity }}" min="1" max="{{ item.product.stock_qty }}" 
                                             data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
                                         <div class="input-group-append">
+                                            {% if item.quantity < item.product.stock_qty %}
                                             <button class="increment-qty btn btn-lg rounded-0"
                                                 data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
                                                 <span>
                                                     <i class="fas fa-plus"></i>
                                                 </span>
                                             </button>
+                                            {% endif %}
                                         </div>
                                     
                                     {% if item.product.has_sizes %}
@@ -72,11 +74,11 @@
                                 </div>
                             </div>
                         </form>
-                        {% if item.product.stock_qty > 1 %}
-                            <a class="update-item text-muted text-decoration-none text-center"><small>Update Quantity</small></a>
-                        {% else %}
-                            <small class="text-muted">Only 1 item left in stock. Quantity can not be updated.</small>
-                        {% endif %}
+                            <a class="update-item btn btn-sm text-decoration-none text-center"><small>Update Quantity</small></a>
+                            <br>
+                        <!-- {% if item.product.stock_qty <= 3 %}
+                            <small class="text-muted">Only {{ item.product.stock_qty }} left in stock. Quantity can not be updated.</small>
+                        {% endif %} -->
                     </div>
                     <div class="col-2 text-end">£{{ item.product.price | calc_subtotal:item.quantity }}</div>
                     <div class="col text-end">
