@@ -17,7 +17,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <h2>Hi {{ user.first_name }}</h2>
+                <h2>{% if user.first_name %} {{ user.first_name }}'s Profile {% else %} {{ user.username }}'s Profile {% endif %} </h2>
                 <hr>
             </div>
         </div>
@@ -36,7 +36,10 @@
                     <div class="card-body">
                         <div class="col">
                             <p>
+                                {% if user.first_name %}
                                 Full Name: {{ user.first_name }} {{ user.last_name }} <br>
+                                {% else %}
+                                {% endif %}
                                 Username: {{ user.username }}<br>
                                 Email: {{ user.email }}<br>
                                 Phone: {{ profile.default_phone_number }}
