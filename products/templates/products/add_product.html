@@ -39,7 +39,7 @@
                                         <th>SKU</th>
                                         <th>Name</th>
                                         <th>Price</th>
-                                        <th>View</th>
+                                        <th>Edit</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -51,7 +51,7 @@
                                         <td>{{ product.name }}</td>
                                         <td>£{{ product.price }}</td>
                                         <td><small class="ml-3">
-                                            <a href="{% url 'product_details' product.id %}">View item</a>
+                                            <a href="{% url 'edit_product' product.id %}">Edit item</a>
                                         </small></td>
                                     </tr>
                                     {% endfor %}
