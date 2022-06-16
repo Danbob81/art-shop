@@ -5,11 +5,10 @@
     <div class="container mb-2">
         <div class="row">
             <div class="col">
-                <a href="{% url 'shop' %}" class="btn btn-light border-0 rounded-0 text-center"><i class="fa-solid fa-paintbrush"></i> Back to Shop</a>
-                <a href="javascript:history.go(-1)" class="btn btn-light border-0 rounded-0 text-center"><i class="fa-solid fa-palette"></i> Back to Products</a>
-                <p class="text-center">
-                    <hr>
-                </p>
+                <h2>{{ product.name }}</h2>
+                <hr>
+                <a href="{% url 'shop' %}" class="btn btn-light border-0 rounded-0 text-center"><small><i class="fa-solid fa-paintbrush"></i> Back to Shop</small></a>
+                <a href="javascript:history.go(-1)" class="btn btn-light border-0 rounded-0 text-center"><small><i class="fa-solid fa-palette"></i> Back to Products</small></a>
                 <br>
             </div>
         </div>
@@ -25,6 +24,7 @@
                 {% if product.stock_qty == 0 %}
                     <h4><span class="badge badge-details bg-danger">Sold</span></h4>
                 {% endif %}
+                <br>
                 <p class="text-start"><strong>{{ product.name }}</strong></p>
                 <p class="text-start">From the {{ product.sub_category.friendly_name }}</p>
                 <br>
