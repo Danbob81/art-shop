@@ -1,13 +1,13 @@
 <h1 align="center"><strong>Art Shop</strong></h1>
 
-View live site [here.]()
+View live site [here.](https://danbob81-art-shop.herokuapp.com/)
 
 ![Main Site Image]()
 
 # **User Experience (UX)** 
 
 ## **Brief**
-
+Local artist Lindsey Higginson wishes to showcase and sell her artwork online. She requires a website that will enable her to do just that. The site is to be clean and modern looking and needs to accept online credit card payments. It also needs the facility to easily update, add and remove items within the shop if/when required.
 
 
 #
@@ -19,12 +19,17 @@ View live site [here.]()
 #
 ## **Design**
 ### **Colour Scheme:**
-  - 
+  - Monochromatic black and white scheme with the only colour coming from the logo, artwork images in the gallery and shop products.
 
 ### **Typography:**
   - Google Fonts
+    - Main text - [Raleway](https://fonts.google.com/share?selection.family=Raleway)
 
 ### **Imagery**
+  - [Font Awesome](https://bit.ly/3tfSjJN) used for icons throughout
+  - [Canva](https://bit.ly/3Ol5jGJ) was used to create the logos in the header and footer of the site
+  - Images in the Welcome, Gallery and Originals section of the shop are scans of original artworks by Lindsey Higginson
+  - Images in the Prints and Merchandise sections of the shop are from [RedBubble](https://rdbl.co/3xHi7Ro)
 
 
 ### **Wireframes**
@@ -43,6 +48,39 @@ PDF links here:
 
 ### **Implemented**
 
+**All users:**
+  - Header, to display consistently throughout, containing:
+    - logo
+    - main nav and mobile nav showing:
+      - Home
+      - Gallery
+      - Shop - with dropdown menu linking to:
+        - Prints
+        - Originals
+        - Merchandise
+    - Sign In/My Account - with dropdown menu linking to:
+      - Product Management (admin/superuser only)
+      - My Profile
+      - Sign Out
+    - Basket - showing the basket total cost when items are in the basket
+  - Welcome page featuring an image and 'about me' text with external link to Instagram
+  - Gallery page featuring images of artwork
+  - Shop page featuring links to three products pages for:
+    - Prints
+    - Originals
+    - Merchandise
+  - Products pages displaying products which link to:
+    - Product details page displaying the individual products information and options to choose quantity and size if available, and add to basket
+  - Shopping basket page displaying items in the basket with basket subtotal and options to update quantity or remove item. Also links to Checkout or back to Shop
+  - Checkout displaying item(s), a form to enter information including shipping address, payment section and Complete Order button
+  - Order confirmation page displaying the order information for purchase immediately made
+  - Profile page displaying logged in users information, with ability to amend their information, and order history
+  - Log out redirects user back to home page
+  - Footer, to display consistently throughout, featuring a disclaimer, copyright and social media links
+
+**Admin/Superuser only:**
+  - Product Management page displaying list of all products, links to Edit Product page, and Add Product form
+  - Edit Product page displaying a preview of the product being edited and a form to edit the product, which includes option to delete the product also
 
 ### **Future features**
 
@@ -78,8 +116,8 @@ PDF links here:
   - Heroku - to deploy live site
 
 ### **Database Technologies**
-  - 
-  - 
+  - sqlite3 in Django development environment
+  - PostgreSQL in deployment
 
 ### **Workspace**
   - Gitpod - VSCode based virtual IDE
