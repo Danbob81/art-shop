@@ -13,6 +13,20 @@ body {
     width: auto;
 }
 
+.mobile-logo {
+    margin-top: -30px;
+}
+
+.navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.navbar-toggler {
+    border: none;
+    padding-top: 0;
+}
+
 .menu-text {
     font-size: 1.75rem;
 }
@@ -58,7 +72,6 @@ body {
 }
 
 .btn-lg {
-    /* background-color: #fff; */
     width: 100%;
 }
 

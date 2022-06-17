@@ -45,7 +45,7 @@
   <body>
     <div class="all-but-footer">
       <header class="container-fluid">
-        <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
+        <div id="topnav" class="row bg-white sticky-top pt-lg-2 d-none d-lg-flex">
           <div class="col-12 col-lg-4 py-1 py-lg-0 text-center text-lg-left"></div>
           <div class="col-12 col-lg-4 py-1 py-lg-0 text-center text-lg-center">
             <a class="logo1" href="{% url 'home' %}">
@@ -101,13 +101,18 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <!-- <a class="logo1 d-none d-md-block d-lg-none" href="{% url 'home' %}">
-              <img src="{% static 'images/logo1.png' %}" alt="Lindsey Higginson Art logo" width="207" height="100">
-            </a> -->
+            <img src="{% static 'images/logo1.png' %}" class="img-fluid d-none d-md-flex d-lg-none" alt="Lindsey Higginson Art logo" width="207" height="100">
             {% include 'includes/mobile-top-header.html' %}
             {% include 'includes/main-nav.html' %}
           </nav>
         </div>
+        <div class="row d-md-none">
+          <div class="col text-center mobile-logo">
+              <a class="logo1" href="{% url 'home' %}">
+              <img src="{% static 'images/logo1.png' %}" alt="Lindsey Higginson Art logo" width="207" height="100">
+              </a>
+          </div>
+      </div>
       </header>
 
       {% if messages %}
