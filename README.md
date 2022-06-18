@@ -13,6 +13,35 @@ Local artist Lindsey Higginson wishes to showcase and sell her artwork online. S
 #
 ## **User Stories**
 
+**Viewing and Navigation**
+  - As a shopper:
+    - I wish to navigate the site intuitively
+    - I wish to get visual feedback on completion of all actions
+    - I wish to view all products clearly so that I can choose what to buy
+    - I wish to view full product information of a specific product, including the product image, description, price, sizes (if any)
+    - I wish to easily see my basket total to see how much I am spending
+
+**Registration and User Accounts**
+  - As a site user:
+    - I wish to create an account to store my order history and personal details including shipping address for future purchases
+    - I wish to easily log in so that I can access my profile and manage my personal details
+    - I wish to easily log out when I have finished using the site
+    - I wish to be able to request a password reset via email in case of have forgotten it
+
+**Purchasing and Checkout**
+  - As a shopper:
+    - I wish to purchase items as a guest so that I can checkout without having to create an account
+    - I wish to be able to easily add items, update quantity, or remove items in the basket before checkout
+    - I wish to be confident that my payment and personal information are secure during the checkout process
+    - I wish to be able to easily enter my payment information
+    - I wish be able to view a summary of my order at checkout before completing my purchase
+    - I wish to recieve a confirmation email for my purchase showing the order details so I can be confident the purchase has been made successfully
+
+**Admin and Store Management**
+  - As the Store Owner:
+    - I wish to be able to easily add new products to my store
+    - I wish to be able to easily view and edit products to update their details or quantity information
+    - I wish to be able to delete products that I no longer wish to sell in my store
 
 [Back to top](#user-experience-ux)
 
