@@ -2,7 +2,7 @@
 
 View live site [here.](https://danbob81-art-shop.herokuapp.com/)
 
-![Main Site Image]()
+![Main Site Image](docs/readme_items/responsive_img.png)
 
 # **User Experience (UX)** 
 
