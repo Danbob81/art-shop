@@ -152,7 +152,6 @@ PDF links here:
   - Balsamiq - for wireframes
   - LucidChart - for entity relationship diagram
   - Heroku - to deploy live site
-  - 
 
 ### **Database Technologies and Cloud Storage**
   - sqlite3 in Django development environment
@@ -182,10 +181,10 @@ More detailed information of the testing carried out can be viewed in [TESTING.m
 ### Requirements for Deployment
 
 * An IDE (such as GitPod or VSCode)
-* Git, for version control
+* Git - for version control
 * GitHub account
 * Python3
-* pip, for Python package installation
+* PIP - for Python package installation
 * Heroku account
 * AWS S3 account
 * Stripe account
