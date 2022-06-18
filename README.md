@@ -124,7 +124,7 @@ PDF links here:
 ## **Database Design**
 
 
-![Entity Relationship Diagram]()
+![Entity Relationship Diagram](docs/readme_items/art_shop_erd.png)
 
 (created using LucidChart - [link](https://bit.ly/3qHI00n))
 
