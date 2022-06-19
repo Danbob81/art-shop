@@ -86,8 +86,14 @@ The site has been tested using Google Chrome, Mozilla Firefox and Microsoft Edge
 **Admin and Store Management**
   - As the Store Owner:
     - I wish to be able to easily add new products to my store
+      - As admin/superuser, a store owner can access Product Management where they can view a list of all products add new products
+      - ![product management](docs/readme_items/screenshots/product_manage.png) ![add product](docs/readme_items/screenshots/product_add.png) ![preview added product](docs/readme_items/screenshots/product_add_preview.png)
     - I wish to be able to easily view and edit products to update their details or quantity information
+      - A store owner can view and edit products by clicking the edit link either in the product detail page or in the product list in Product Management
+      - ![edit product](docs/readme_items/screenshots/product_edit.png)
     - I wish to be able to delete products that I no longer wish to sell in my store
+      - a product can be deleted via the button in the Edit Product page. A confirmation modal appears to prevent accidental deletion of a product
+      - ![delete product](docs/readme_items/screenshots/product_delete_warn.png)
 
 
 
@@ -99,7 +105,28 @@ The site has been tested using Google Chrome, Mozilla Firefox and Microsoft Edge
 
 
 #
-### **CSS - [(Jigsaw) validator](https://bit.ly/3F29Zg1)** - *passed*
+### **CSS - [(Jigsaw) validator](https://bit.ly/3F29Zg1)** - *returned no errors*
+  - Home
+    - ![css home](docs/readme_items/screenshots/css_home.png)
+  - Gallery
+    - ![css gallery](docs/readme_items/screenshots/css_gallery.png)
+  - Shop
+    - ![css shop](docs/readme_items/screenshots/css_shop.png)
+  - Products
+    - ![css products](docs/readme_items/screenshots/css_products.png)
+  - Products Detail
+    - ![css product details](docs/readme_items/screenshots/css_product_detail.png)
+  - Basket
+    - ![css basket](docs/readme_items/screenshots/css_basket.png)
+  - Checkout
+    - ![css checkout](docs/readme_items/screenshots/css_checkout.png)
+  - Profile
+    - ![css profile](docs/readme_items/screenshots/css_profile.png)
+  - Product Management - Add Product
+    - ![css add product](docs/readme_items/screenshots/css_product_add.png)
+  - Product Management - Edit Product
+    - ![css edit product](docs/readme_items/screenshots/css_product_edit.png)
+  
 
 #
 ### **Javascript - [JSHint](https://bit.ly/3jRVMKH)** - *passed*
