@@ -66,9 +66,9 @@ Local artist Lindsey Higginson wishes to showcase and sell her artwork online. S
 Wireframes for desktop, tablet and mobile views created using Balsamiq.
 
 PDF links here:
-  - [Desktop]()
-  - [Tablet]()
-  - [Mobile]()
+  - [Desktop](docs/readme_items/wireframes/art_shop_desktop.pdf)
+  - [Tablet](docs/readme_items/wireframes/art_shop_tablet.pdf)
+  - [Mobile](docs/readme_items/wireframes/art_shop_mobile.pdf)
 
 [Back to top](#user-experience-ux)
 
