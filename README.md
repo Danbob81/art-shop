@@ -171,7 +171,7 @@ Chrome Developer Tool was used to simulate the different viewport sizes for desk
 
 The deployed website was also tested using Chrome, Edge and Firefox as well as on mobile (using Chrome for Android on Huawei P30)
 
-More detailed information of the testing carried out can be viewed in [TESTING.md]()
+More detailed information of the testing carried out can be viewed in [TESTING.md](TESTING.md)
 
 [Back to top](#user-experience-ux)
 
