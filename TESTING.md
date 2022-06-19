@@ -65,11 +65,23 @@ The site has been tested using Google Chrome, Mozilla Firefox and Microsoft Edge
 **Purchasing and Checkout**
   - As a shopper:
     - I wish to purchase items as a guest so that I can checkout without having to create an account
+      - A guest user can purchase items without registering
     - I wish to be able to easily add items, update quantity, or remove items in the basket before checkout
+      - The item quantity can be adjusted in the Product Detail page
+      - The basket can be updated with items added, quantity adjusted or items removed before checkout
+      - Visual feedback is given for any changes made via toast messages
+      - ![basket](docs/readme_items/screenshots/basket_anon.png) ![basket updated toast](docs/readme_items/screenshots/toast_basket_updated.png)
     - I wish to be confident that my payment and personal information are secure during the checkout process
+      - Stripe is used to handle all card payments on this site. Stripe is certified to PCI Service Provider Level 1, which is the most stringent level of certification available in the payments industry. All card numbers are encrypted with AES-256 (Advanced Encryption Standard - 256 bits), and decryption keys are stored on separate machines.
     - I wish to be able to easily enter my payment information
+      - The place to enter payment information is clearly labelled along with the personal information and shipping address form
+      - ![checkout form](docs/readme_items/screenshots/checkout_form.png)
     - I wish be able to view a summary of my order at checkout before completing my purchase
+      - An order summery is displayed in the Checkout with a link to amend the order if necessary which takes the user back to the Basket page
+      - ![checkout summary](docs/readme_items/screenshots/checkout_summary.png)
     - I wish to recieve a confirmation email for my purchase showing the order details so I can be confident the purchase has been made successfully
+      - A confirmation email is sent to the user when they have clicked Complete Order in the checkout. A toast message is displayed telling the user that the email has been sent
+      - ![confirmation email](docs/readme_items/screenshots/email_conf_anon.png)
 
 **Admin and Store Management**
   - As the Store Owner:
