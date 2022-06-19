@@ -228,7 +228,7 @@ The site has been tested using Google Chrome, Mozilla Firefox and Microsoft Edge
 ## **Additional testing:**
 Black box testing was also carried out on the final deployed website.
     
-All tests passed. Results can be viewed [here]()
+All tests passed. Results can be viewed [here](docs/readme_items/black_box_testing/art_shop_website_test_plan.pdf)
 
 #
 ## **Bugs**
