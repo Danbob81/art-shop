@@ -32,7 +32,7 @@ class Order(models.Model):
     grand_total = models.DecimalField(max_digits=10, decimal_places=2,
                                       default=0)
     original_basket = models.TextField(null=False, blank=False, default='')
-    stripe_pid = models.CharField(max_length=254, null=False, blank=False, 
+    stripe_pid = models.CharField(max_length=254, null=False, blank=False,
                                   default='')
 
     def _generate_order_number(self):
@@ -80,7 +80,7 @@ class OrderLineItem(models.Model):
 
     def save(self, *args, **kwargs):
         """ Override the original save method to set the lineitem total
-        and update the order total 
+        and update the order total
         """
         self.lineitem_total = self.product.price * self.quantity
         super().save(*args, **kwargs)

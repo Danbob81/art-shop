@@ -101,7 +101,7 @@ The site has been tested using Google Chrome, Mozilla Firefox and Microsoft Edge
 
 #
 ## **Validator testing:**
-### **HTML - [W3C Validator](https://bit.ly/3vkSIx1)** - *passed*
+### **HTML - [W3C Validator](https://bit.ly/3vkSIx1)** - *returned no errors*
   - Home
     - ![html home](docs/readme_items/screenshots/html_home.png)
   - Gallery
@@ -109,9 +109,9 @@ The site has been tested using Google Chrome, Mozilla Firefox and Microsoft Edge
   - Shop
     - ![html shop](docs/readme_items/screenshots/html_shop.png)
   - Products
-    - ![html products](docs/readme_items/screenshots/css_products.png)
+    - ![html products](docs/readme_items/screenshots/html_products.png)
   - Product Details
-    - ![html product details](docs/readme_items/screenshots/css_product_detail.png)
+    - ![html product details](docs/readme_items/screenshots/html_product_detail.png)
   - Basket
     - ![html basket](docs/readme_items/screenshots/html_basket.png)
   - Checkout
@@ -145,13 +145,12 @@ The site has been tested using Google Chrome, Mozilla Firefox and Microsoft Edge
     - ![css add product](docs/readme_items/screenshots/css_product_add.png)
   - Product Management - Edit Product
     - ![css edit product](docs/readme_items/screenshots/css_product_edit.png)
-  
 
 #
 ### **Javascript - [JSHint](https://bit.ly/3jRVMKH)** - *returned no errors*
   - Product image
     - ![js product image](docs/readme_items/screenshots/js_product_image.png)
-  - Product qunatity
+  - Product quantity
     - ![js product quantity](docs/readme_items/screenshots/js_product_quantity.png)
   - Basket
     - ![js basket](docs/readme_items/screenshots/js_basket.png)
@@ -161,7 +160,67 @@ The site has been tested using Google Chrome, Mozilla Firefox and Microsoft Edge
     - ![js checkout](docs/readme_items/screenshots/js_checkout.png)
 
 #
-### **Python - [Pep8](https://bit.ly/3qXj7hD)** - *passed*
+### **Python - [Pep8](https://bit.ly/3qXj7hD)** - *returned no errors*
+  - Art Shop (project level)
+    - settings.py
+      ![settings](docs/readme_items/screenshots/pep8_settings.png)
+    - urls.py
+      ![urls](docs/readme_items/screenshots/pep8_urls.png)
+  - Basket
+    - views.py
+      ![views](docs/readme_items/screenshots/pep8_basket_view.png)
+    - urls.py
+      ![urls](docs/readme_items/screenshots/pep8_basket_urls.png)
+    - contexts.py
+      ![contexts](docs/readme_items/screenshots/pep8_basket_context.png)
+  - Checkout
+    - admin.py
+      ![admin](docs/readme_items/screenshots/pep8_checkout_admin.png)
+    - forms.py
+      ![forms](docs/readme_items/screenshots/pep8_checkout_forms.png)
+    - models.py
+      ![models](docs/readme_items/screenshots/pep8_checkout_models.png)
+    - views.py
+      ![views](docs/readme_items/screenshots/pep8_checkout_views.png)
+    - webhook_handler.py
+      ![webhook handler](docs/readme_items/screenshots/pep8_webhook_handler.png)
+    - webhooks.py
+      ![webhooks](docs/readme_items/screenshots/pep8_webhooks.png)
+  - Gallery
+    - urls.py
+      ![urls](docs/readme_items/screenshots/pep8_gallery_url.png)
+    - views.py
+      ![views](docs/readme_items/screenshots/pep8_gallery_view.png)
+  - Home
+    - urls.py
+      ![urls](docs/readme_items/screenshots/pep8_home_url.png)
+    - views.py
+      ![views](docs/readme_items/screenshots/pep8_home_view.png)
+  - Products
+    - urls.py
+      ![urls](docs/readme_items/screenshots/pep8_product_urls.png)
+    - views.py
+      ![views](docs/readme_items/screenshots/pep8_product_views.png)
+    - admin.py
+      ![admin](docs/readme_items/screenshots/pep8_product_admin.png)
+    - forms.py
+      ![forms](docs/readme_items/screenshots/pep8_product_forms.png)
+    - models.py
+      ![models](docs/readme_items/screenshots/pep8_product_models.png)
+  - Profiles
+    - forms.py
+      ![forms](docs/readme_items/screenshots/pep8_profiles_form.png)
+    - models.py
+      ![models](docs/readme_items/screenshots/pep8_profiles_models.png)
+    - urls.py
+      ![urls](docs/readme_items/screenshots/pep8_profiles_urls.png)
+    - views.py
+      ![views](docs/readme_items/screenshots/pep8_profiles_views.png)
+  - Shop
+    - urls.py
+      ![urls](docs/readme_items/screenshots/pep8_shop_url.png)
+    - views.py
+      ![views](docs/readme_items/screenshots/pep8_shop_views.png)
 
 [Back to top](#testing)
 
