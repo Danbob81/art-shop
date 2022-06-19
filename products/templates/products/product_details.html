@@ -30,7 +30,6 @@
                 <br>
                 <p class="text-start">{{ product.description }}</p>
                 <p class="text-start">£{{ product.price }}</p>
-
                 <form class="form" action="{% url 'add_to_basket' product.id %}" method="POST">
                     {% if product.stock_qty != 0 %}
                         <div class="form-group w-50">

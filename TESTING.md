@@ -129,7 +129,17 @@ The site has been tested using Google Chrome, Mozilla Firefox and Microsoft Edge
   
 
 #
-### **Javascript - [JSHint](https://bit.ly/3jRVMKH)** - *passed*
+### **Javascript - [JSHint](https://bit.ly/3jRVMKH)** - *returned no errors*
+  - Product image
+    - ![js product image](docs/readme_items/screenshots/js_product_image.png)
+  - Product qunatity
+    - ![js product quantity](docs/readme_items/screenshots/js_product_quantity.png)
+  - Basket
+    - ![js basket](docs/readme_items/screenshots/js_basket.png)
+  - Country fields
+    - ![js countryfields](docs/readme_items/screenshots/js_countryfields.png)
+  - Checkout/Stripe Payments
+    - ![js checkout](docs/readme_items/screenshots/js_checkout.png)
 
 #
 ### **Python - [Pep8](https://bit.ly/3qXj7hD)** - *passed*

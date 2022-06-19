@@ -40,7 +40,7 @@
     {% block extra_js %}
     {% endblock %}
 
-    <title>The Art Shop</title>
+    <title>Lindsey Higginson Art</title>
   </head>
   <body>
     <div class="all-but-footer">
@@ -140,7 +140,7 @@
       {% endblock %}
 
       {% block postloadjs %}
-        <script type="text/javascript">
+        <script>
           $('.toast').toast('show');
         </script>
       {% endblock %}
@@ -160,7 +160,6 @@
             <img src="{% static 'images/logo2.png' %}" alt="Lindsey Higginson Art logo" width="225" height="60">
           </a>
         </div>
-        <!-- <div class="row"> -->
           <div class="col-sm">
             <p class="text-center">
               <a class="text-dark" href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-square fa-lg"></i></a>
@@ -174,7 +173,6 @@
               <a class="text-dark" href="https://www.linkedin.com/in/daniel-higginson/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
             </span>
           </div>
-        <!-- </div> -->
       </div>
     </footer>
   </body>

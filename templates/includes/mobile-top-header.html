@@ -1,9 +1,8 @@
 {% load static %}
 
-<ul>
-  <div class="col my-auto py-1 py-lg-0 text-center text-lg-center">
+  <ul>
     <li class="list-inline-item dropdown">
-      <a class="text-dark nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <a class="text-dark nav-link d-block d-lg-none" href="#" id="user-options-mobile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <div class="text-center">
             {% if request.user.is_authenticated %}
             <i class="fa-solid fa-palette"></i>
@@ -13,7 +12,7 @@
             {% endif %}
           </div>
       </a>
-      <div class="dropdown-menu border-0" aria-labelledby="user-options">
+      <div class="dropdown-menu border-0" aria-labelledby="user-options-mobile">
           {% if request.user.is_authenticated %}
                 {% if request.user.is_superuser %}
                     <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
@@ -41,5 +40,4 @@
           </div>
       </a>
     </li>
-  </div>
-</ul>
+  </ul>

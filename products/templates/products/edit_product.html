@@ -60,15 +60,6 @@
                                     </a>
                                 </div>
                             </div>
-                            <!-- <div class="col">
-                                <a class="btn btn-dark btn-outline-light rounded-0 text-uppercase text-center" data-toggle="modal" data-target="#exampleModal">Delete Product</a>
-                                <a class="btn btn-light btn-outline-dark rounded-0 text-uppercase text-center" href="#collapseForm" data-toggle="collapse" 
-                                    role="button" aria-expanded="false" aria-controls="collapseForm">
-                                    <h5 class="mb-0">
-                                        Edit Product
-                                    </h5>
-                                </a>
-                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -99,7 +90,6 @@
                                     <div class="col-md-6">
                                         <br>
                                         <a class="btn btn-dark btn-lg btn-outline-light rounded-0 text-uppercase text-center" data-toggle="modal" data-target="#exampleModal">Delete Product</a>
-                                        <!-- <a class="btn btn-dark btn-lg btn-outline-light rounded-0 text-uppercase text-center" href="{% url 'product_details' product.id %}">Cancel</a> -->
                                     </div>
                                     <div class="col-md-6">
                                         <br>
@@ -144,6 +134,6 @@
         $('#new-image').change(function() {
             var file = $('#new-image')[0].files[0];
             $('#filename').text(`Image will be set to: ${file.name}`);
-        })
+        });
     </script>
 {% endblock %}
