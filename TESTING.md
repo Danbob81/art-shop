@@ -103,25 +103,25 @@ The site has been tested using Google Chrome, Mozilla Firefox and Microsoft Edge
 ## **Validator testing:**
 ### **HTML - [W3C Validator](https://bit.ly/3vkSIx1)** - *passed*
   - Home
-    - ![html home]()
+    - ![html home](docs/readme_items/screenshots/html_home.png)
   - Gallery
-    - ![html gallery]()
+    - ![html gallery](docs/readme_items/screenshots/html_gallery.png)
   - Shop
-    - ![html shop]()
+    - ![html shop](docs/readme_items/screenshots/html_shop.png)
   - Products
-    - ![html products]()
+    - ![html products](docs/readme_items/screenshots/css_products.png)
   - Product Details
-    - ![html product details]()
+    - ![html product details](docs/readme_items/screenshots/css_product_detail.png)
   - Basket
-    - ![html basket]()
+    - ![html basket](docs/readme_items/screenshots/html_basket.png)
   - Checkout
-    - ![html checkout]()
+    - ![html checkout](docs/readme_items/screenshots/html_checkout.png)
   - Profile
-    - ![html profile]()
+    - ![html profile](docs/readme_items/screenshots/html_profile.png)
   - Product Management - Add Product
-    - ![html add product]()
+    - ![html add product](docs/readme_items/screenshots/html_products_add.png)
   - Product Management - Edit Product
-    - ![html edit product]()
+    - ![html edit product](docs/readme_items/screenshots/html_products_edit.png)
 
 #
 ### **CSS - [(Jigsaw) validator](https://bit.ly/3F29Zg1)** - *returned no errors*
