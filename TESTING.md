@@ -234,7 +234,14 @@ All tests passed. Results can be viewed [here]()
 ## **Bugs**
 
 **Found and corrected**
+  - I found that when an anonymous user made a purchase, the confirmation email didn't send. I found in the webhooks there was a 500 server error on the payment_intent.succeeded. The problem was solved by correcting a typo in the webhook handler - I had misspelled 'AnonymousUser'.
+  Thanks to Christine in Tutor Support for helping me eventually find the error!
+  - An issue occurred where the user could keep adding an item to the basket even when there were not enough in stock. The basket would show the quantity as the available number but the item subtotal would keep adding up each time the Add to Basket button was clicked. I solved this problem in the add_to_basket view so that it would check if the item was already in the basket and then calculate the requested quantity against the available stock quantity. This worked but then I got an error: 'ValueError: Field 'id' expected a number but got 'basket_items'.' This stopped me from being able to open any page in the site. 
+  Eventually, clearing the local storage, session and cookies, via Google Dev, cleared the error and it has not returned since. Thanks to Sean in Tutor Support for helping with that error.
+  - When run through HTML Validator an error was returned saying that there was a duplicate id. This was down to the fact that a dropdown list in the base.html template was repeated in the mobile-top-header.html for mobile screen size functionality. I changed the id name in the maobile top header and when run through the validator again, no error was returned.
 
-**No known bugs left unfixed**
+**Known bugs**
+  - There is a minor styling bug with the sign in/my account dropdown menu. If the icon is clicked on, the dropdown menu shifts to the right. This is something I can work on fixing later.
+  - There are no other bugs that I am aware of.
 
 [Back to top](#testing)
