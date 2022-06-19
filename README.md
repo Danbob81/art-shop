@@ -122,6 +122,7 @@ PDF links here:
 
 #
 ## **Database Design**
+### **Entity Relationship Diagram**
 
 
 ![Entity Relationship Diagram](docs/readme_items/art_shop_erd.png)
@@ -168,7 +169,7 @@ PDF links here:
 
 Chrome Developer Tool was used to simulate the different viewport sizes for desktop and laptop views, tablet views and mobile views. I used this throughout the development process as well as for testing the website once it was deployed to Heroku.
 
-The deployed website was also tested using Chrome, Edge and Firefox as well as on mobile (using Chrome for Android)
+The deployed website was also tested using Chrome, Edge and Firefox as well as on mobile (using Chrome for Android on Huawei P30)
 
 More detailed information of the testing carried out can be viewed in [TESTING.md]()
 

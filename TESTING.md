@@ -48,9 +48,19 @@ The site has been tested using Google Chrome, Mozilla Firefox and Microsoft Edge
 **Registration and User Accounts**
   - As a site user:
     - I wish to create an account to store my order history and personal details including shipping address for future purchases
+      - A user register for an account by clicking Register in the dropdown menu top right of the page
+      - ![register](docs/readme_items/screenshots/sign_in_dropdown.png)
+      - The user is taken to a Sign Up form; when they click Sign Up, a message informs that a confirmation email was sent to them asking them to confirm their email address; the link takes the user to the Confirm Email Address page.
+      - ![verify email](docs/readme_items/screenshots/sign_up.png)
     - I wish to easily log in so that I can access my profile and manage my personal details
+      - A user can log in from the dropdown menu. Once logged in they can select My Profile from the same dropdown menu which takes them to the Profile page. There they can update their personal information, including delivery address, and also view their Order History
+      - ![my account](docs/readme_items/screenshots/account_dropdown2.png) ![profile](docs/readme_items/screenshots/profile.png)
     - I wish to easily log out when I have finished using the site
+      - A user can click Logout in the My Account dropdown which takes them to a confirmation page
+      - ![sign out confirmation](docs/readme_items/screenshots/sign_out.png)
     - I wish to be able to request a password reset via email in case of have forgotten it
+      - A user can click Forgot Password? in the Sign Up page. This will take them to a page asking them to enter their email address. When they recieve the email, they must click the link in the email which takes them to a page where they can enter a new password; clicking on the Change Password button then takes them to a confirmation page telling them the password was successfully changed. After that the can sign in like usual
+      - ![password reset 1](docs/readme_items/screenshots/password_reset.png) ![password reset 2](docs/readme_items/screenshots/password_reset2.png) ![password reset 3](docs/readme_items/screenshots/password_reset3.png) ![password reset 4](docs/readme_items/screenshots/password_reset4.png)
 
 **Purchasing and Checkout**
   - As a shopper:
